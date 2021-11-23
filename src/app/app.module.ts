@@ -9,6 +9,12 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { TechnologyComponent } from './technology/technology.component';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'crew', component: CrewComponent },
+  { path: 'destination', component: DestinationComponent },
+  { path: 'technology', component: TechnologyComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +24,7 @@ import { TechnologyComponent } from './technology/technology.component';
     HomeComponent,
     TechnologyComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent],
 })
