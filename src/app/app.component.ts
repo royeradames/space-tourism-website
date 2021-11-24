@@ -7,5 +7,12 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  /* keep track what is the current displaying page */
+  currentPage = {
+    isHome: true,
+    isDestination: false,
+    isCrew: false,
+    isTechnology: false,
+  };
   constructor() {}
 }
