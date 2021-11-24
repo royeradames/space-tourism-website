@@ -1,0 +1,57 @@
+@import "../../sass/variables";
+.crew {
+  /* define page component layout and white space */
+  display: grid;
+  grid-template:
+    "title" auto
+    "." 3.2rem
+    "img" max-content
+    "." 3.2rem
+    "list" auto
+    "." 3.2rem
+    "position" max-content
+    "." 0.8rem
+    "name" auto
+    "." 1.6rem
+    "bio" auto;
+  text-align: center;
+  justify-items: center;
+  padding: 2.4rem 2.4rem 10.4rem;
+
+  @media (min-width: $medium) {
+    grid-template:
+      "title" auto
+      "." 6rem
+      "position" max-content
+      "." 0.8rem
+      "name" auto
+      "." 2.8rem
+      "bio" auto
+      "." 4rem
+      "list" auto
+      "." 4rem
+      "img" auto;
+    padding: 4rem 3.85rem 0;
+
+    // hide the photo when you move it down
+    overflow: hidden;
+  }
+
+  @media (min-width: $big) {
+    grid-template:
+      "title img" max-content
+      ". img" 15.4rem
+      "position img" max-content
+      ". img" 1.5rem
+      "name img" max-content
+      ". img" 4.3rem
+      "bio img" auto
+      ". img" 12rem
+      "list img" auto
+      ". img" 9.4rem
+      / 1fr auto;
+    padding: 6.2rem 16.65rem 0;
+    justify-items: start;
+    text-align: start;
+  }
+}
