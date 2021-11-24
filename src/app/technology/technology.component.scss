@@ -159,4 +159,23 @@
       }
     }
   }
+
+  &-bio {
+    grid-area: bio;
+    width: 32.7rem;
+    font-family: "Barlow";
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    color: #d0d6f9;
+
+    @media (min-width: $medium) {
+      width: 45.8rem;
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+    @media (min-width: $big) {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
+  }
 }
