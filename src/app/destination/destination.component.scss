@@ -1,0 +1,72 @@
+@import "../../sass/variables";
+.destination {
+  /* define page layout, components names, and white space */
+  display: grid;
+  grid-template:
+    "title" auto
+    "." 3.2rem
+    "img" auto
+    "." 2.6rem
+    "list" auto
+    "." 2rem
+    "name" auto
+    "." 1.6rem
+    "message" auto
+    "." 3.2rem
+    "line" 1fr
+    "." 3.2rem
+    "distance-label" auto
+    "." 1.2rem
+    "distance" auto
+    "." 3.2rem
+    "time-label" auto
+    "." 1.2rem
+    "time" auto
+    / 1fr;
+  padding: 2.4rem 2.4rem 5.8rem;
+  justify-items: center;
+  text-align: center;
+  color: white;
+
+  @media (min-width: $medium) {
+    grid-template:
+      "title               title" auto
+      ".............. .........." 6rem
+      "img                   img" auto
+      ".............. .........." 5.3rem
+      "list                 list" auto
+      ".............. .........." 3.2rem
+      "name                 name" auto
+      ".............. .........." 3rem
+      "message           message" auto
+      ".............. .........." 5.3rem
+      "line                 line" 1fr
+      ".............. .........." 2.8rem
+      "distance-label time-label" auto
+      ".............. .........." 1.2rem
+      "distance             time" auto
+      / 1fr 1fr;
+    padding: 4rem 3.85rem 5.8rem;
+    column-gap: 10rem;
+  }
+  @media (min-width: $big) {
+    grid-template:
+      "title title title title title" auto
+      "... . . . .........." 6.4rem
+      "... . list list list" auto
+      "img . . . ...." 5.3rem
+      "img . name name name" auto
+      "img . . . ......" 4rem
+      "img . message message message" auto
+      "img . . . ............" 5.4rem
+      "img . line line line" auto
+      "img . . . ......." 2.8rem
+      "img . distance-label . time-label" auto
+      "img . . . ................" 1.2rem
+      "img . distance . time" auto
+      / 2fr 15.7rem 1fr 6.8rem 1fr;
+    justify-items: start;
+    padding: 7.6rem 16.65rem 11.8rem;
+    column-gap: initial;
+  }
+}
