@@ -60,4 +60,25 @@
       color: white;
     }
   }
+  &-message {
+    grid-area: message;
+
+    width: 32.7rem;
+    @media (min-width: $medium) {
+      width: 44.4rem;
+    }
+
+    font-family: "Barlow";
+    font-weight: 400;
+
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    @media (min-width: $medium) {
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+
+    text-align: center;
+    color: #d0d6f9;
+  }
 }
