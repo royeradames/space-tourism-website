@@ -14,5 +14,15 @@ export class AppComponent {
     isCrew: false,
     isTechnology: false,
   };
-  constructor() {}
+  constructor(private location: Location, private router: Router) {
+    /* check what is the current render page */
+    router.events.subscribe((val) => {
+      const thereIsAPath = location.path() != '';
+      const defaultPath = '/';
+      const currentPath = location.path();
+      thereIsAPath
+        ? this.changePageBackground(currentPath)
+        : this.changePageBackground(defaultPath);
+    });
+  }
 }
