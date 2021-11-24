@@ -132,4 +132,31 @@
       }
     }
   }
+
+  &-name {
+    grid-area: name;
+    font-family: "Bellefair";
+    color: white;
+    font-size: 2.4rem;
+    @media (min-width: $medium) {
+      font-size: 4rem;
+    }
+    @media (min-width: $big) {
+      font-size: 5.6rem;
+    }
+    &-label {
+      display: block;
+      font-family: "Barlow Condensed";
+      font-size: 1.4rem;
+      letter-spacing: 0.236rem;
+      margin-bottom: 0.9rem;
+      color: #d0d6f9;
+
+      @media (min-width: $medium) {
+        margin-bottom: 1.6rem;
+        font-size: 1.6rem;
+        letter-spacing: 0.27rem;
+      }
+    }
+  }
 }
