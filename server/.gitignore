@@ -1,0 +1,6 @@
+# modules
+node_modules
+# development database
+db/spaceTourism.db3
+# database queries
+db/sql_queries
