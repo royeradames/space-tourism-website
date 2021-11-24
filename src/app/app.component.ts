@@ -25,4 +25,56 @@ export class AppComponent {
         : this.changePageBackground(defaultPath);
     });
   }
+
+  /* update currentPage base on page change*/
+  changePageBackground(page: string) {
+    const HOME = '/';
+    const DESTINATION = '/destination';
+    const CREW = '/crew';
+    const TECHNOLOGY = '/technology';
+    console.log('event');
+    switch (page) {
+      case HOME:
+        this.currentPage = {
+          isHome: true,
+          isDestination: false,
+          isCrew: false,
+          isTechnology: false,
+        };
+        break;
+      case DESTINATION:
+        this.currentPage = {
+          isHome: false,
+          isDestination: true,
+          isCrew: false,
+          isTechnology: false,
+        };
+        break;
+      case CREW:
+        this.currentPage = {
+          isHome: false,
+          isDestination: false,
+          isCrew: true,
+          isTechnology: false,
+        };
+        break;
+      case TECHNOLOGY:
+        this.currentPage = {
+          isHome: false,
+          isDestination: false,
+          isCrew: false,
+          isTechnology: true,
+        };
+        break;
+
+      default:
+        this.currentPage = {
+          isHome: true,
+          isDestination: false,
+          isCrew: false,
+          isTechnology: false,
+        };
+        break;
+    }
+  }
 }
