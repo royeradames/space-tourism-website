@@ -76,4 +76,60 @@
   &-img {
     grid-area: img;
   }
+
+  &-list {
+    grid-area: list;
+    width: 15.2rem;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: $medium) {
+      /* increase size */
+      width: 21rem;
+    }
+    @media (min-width: $big) {
+      /* arrage vertically */
+      width: initial;
+      flex-direction: column;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      letter-spacing: 0.1rem;
+      color: white;
+      border: 0.1rem solid rgba(255, 255, 255, 25%);
+      cursor: pointer;
+
+      @media (min-width: $medium) {
+        /* increase size */
+        width: 6rem;
+        height: 6rem;
+
+        font-size: 2.4rem;
+        letter-spacing: 0.15rem;
+      }
+
+      @media (min-width: $big) {
+        /* increase size */
+        width: 8rem;
+        height: 8rem;
+
+        font-size: 3.2rem;
+        letter-spacing: 0.02rem;
+      }
+      &:active {
+        background-color: white;
+        color: #0b0d17;
+      }
+      &:hover {
+        border: 0.1rem solid white;
+      }
+    }
+  }
 }
