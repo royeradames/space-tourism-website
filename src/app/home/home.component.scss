@@ -1,6 +1,6 @@
 @import "../../sass/_variables.scss";
 .home {
-  /* define page layout, components name, and white space */
+  /* define page layout, elements name, and white space */
   display: grid;
   justify-items: center;
   grid-template:
@@ -33,7 +33,7 @@
     justify-items: end;
   }
 
-  /* define components */
+  /* define elements */
   &-title {
     grid-area: title;
     font-family: "Barlow Condensed";
