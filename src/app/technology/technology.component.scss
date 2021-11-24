@@ -1,0 +1,48 @@
+@import "../../sass/variables";
+.technology {
+  /* define page layout, elements names, and white space */
+  display: grid;
+  grid-template:
+    "title" max-content
+    "." 3.2rem
+    "img" max-content
+    "." 3.4rem
+    "list" max-content
+    "." 2.6rem
+    "name" max-content
+    "." 1.6rem
+    "bio" auto;
+  justify-items: center;
+  text-align: center;
+  // add space from the top and botton
+  padding: 2.4rem 0 8.1rem;
+
+  @media (min-width: $medium) {
+    // increase white space
+    grid-template:
+      "title" max-content
+      "." 6rem
+      "img" max-content
+      "." 5.6rem
+      "list" max-content
+      "." 4.4rem
+      "name" max-content
+      "." 2.7rem
+      "bio" auto;
+    padding: 4rem 0 9.7rem;
+  }
+
+  @media (min-width: $big) {
+    grid-template:
+      "title title title title tile"
+      ". . . . img" 13.7rem
+      "list . name . img" max-content
+      "list . . . img" 3.2rem
+      "list . bio . img"
+      ". . . . img"
+      / min-content 8rem max-content 15.6rem auto;
+    padding: 7.6rem 0 10.1rem 16.5rem;
+    justify-items: start;
+    text-align: start;
+  }
+}
