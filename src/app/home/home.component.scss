@@ -32,4 +32,32 @@
     padding: 0 16.5rem;
     justify-items: end;
   }
+
+  /* define components */
+  &-title {
+    grid-area: title;
+    font-family: "Barlow Condensed";
+    font-weight: 400;
+    font-size: 1.6rem;
+    letter-spacing: 0.27rem;
+    @media (min-width: $medium) {
+      font-size: 2rem;
+      letter-spacing: 0.338rem;
+    }
+
+    color: #d0d6f9;
+    text-align: center;
+    span {
+      display: block;
+      font-family: "Bellefair";
+      font-size: 8rem;
+      line-height: 10rem;
+      @media (min-width: $medium) {
+        font-size: 15rem;
+        line-height: 15rem;
+        margin-top: 2.4rem;
+      }
+      color: white;
+    }
+  }
 }
