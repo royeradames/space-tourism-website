@@ -15,6 +15,8 @@ const resolvers = {
     /* Get detail information about a technology use for the travel */
     technology: (_, { name }, { dataSources }) =>
       dataSources.db.getTechnology(name),
+    /* Find landing page data */
+    home: (_, __, { dataSources }) => dataSources.db.getHomeData(),
   },
 };
 
