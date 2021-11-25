@@ -17,5 +17,18 @@ const typeDefs = gql`
     "Information for the landing page"
     home: Home
   }
+
+  "Information about the crew member"
+  type CrewMember {
+    crewId: ID!
+    "The title of the crew"
+    position: String
+    "Name of the crew member"
+    name: String
+    "Short description of the crew member"
+    bio: String
+    "Crew member image"
+    img: String
+  }
 `;
 export default typeDefs;
