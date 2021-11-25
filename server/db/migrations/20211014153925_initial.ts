@@ -16,9 +16,19 @@ export async function up(knex: Knex): Promise<void> {
       table.text("distance");
       table.text("time");
       table.text("img");
+    })
+    .createTable("technology", (table) => {
+      table.increments("technologyId");
+      table.text("name");
+      table.text("bio");
+      table.text("imgLandscape");
+      table.text("imgPortrait");
     });
 }
 
 export async function down(knex: Knex): Promise<void> {
-  return knex.schema.dropTable("crew").dropTable("destination");
+  return knex.schema
+    .dropTable("crew")
+    .dropTable("destination")
+    .dropTable("technology");
 }
