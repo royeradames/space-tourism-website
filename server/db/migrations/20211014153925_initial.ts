@@ -23,6 +23,13 @@ export async function up(knex: Knex): Promise<void> {
       table.text("bio");
       table.text("imgLandscape");
       table.text("imgPortrait");
+    })
+    .createTable("home", (table) => {
+      table.increments("homeId");
+      table.text("title");
+      table.text("titleSpan");
+      table.text("message");
+      table.text("action");
     });
 }
 
@@ -30,5 +37,6 @@ export async function down(knex: Knex): Promise<void> {
   return knex.schema
     .dropTable("crew")
     .dropTable("destination")
-    .dropTable("technology");
+    .dropTable("technology")
+    .dropTable("home");
 }
