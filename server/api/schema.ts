@@ -44,5 +44,17 @@ const typeDefs = gql`
     "Image of the planet"
     img: String
   }
+  "Detail information of the technology that it's use for the planetary travel"
+  type Technology {
+    technologyId: ID!
+    "The technology name"
+    name: String
+    "The technology description"
+    bio: String
+    "Image fo the technology in landscape view"
+    imgLandscape: String
+    "Image of the technology in portrait view"
+    imgPortrait: String
+  }
 `;
 export default typeDefs;
