@@ -12,6 +12,9 @@ const resolvers = {
       dataSources.db.getDestination(planet),
     /* Find list of all technolgies */
     technologies: (_, __, { dataSources }) => dataSources.db.getTechnologies(),
+    /* Get detail information about a technology use for the travel */
+    technology: (_, { name }, { dataSources }) =>
+      dataSources.db.getTechnology(name),
   },
 };
 
