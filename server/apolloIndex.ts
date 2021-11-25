@@ -4,7 +4,7 @@ import resolvers from "./api/resolvers";
 import TrackDB from "./api/datasources/track-db";
 
 /* knex config object */
-const knexDbConfig = require("./db/dbConfig");
+const knexConfig = require("./knexfile");
 
 const environment = process.env.DB_ENV || "development";
 
@@ -12,7 +12,7 @@ const environment = process.env.DB_ENV || "development";
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  dataSources: () => ({ db: new TrackDB(knexDbConfig) }),
+  dataSources: () => ({ db: new TrackDB(knexConfig[environment]) }),
 });
 
 /* give server access */
