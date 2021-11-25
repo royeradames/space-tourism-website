@@ -56,5 +56,17 @@ const typeDefs = gql`
     "Image of the technology in portrait view"
     imgPortrait: String
   }
+  "landing page information"
+  type Home {
+    homeId: ID!
+    "The title of the home page"
+    title: String
+    "The title emphasize word"
+    titleSpan: String
+    "The home page main message"
+    message: String
+    "The home page action button text"
+    action: String
+  }
 `;
 export default typeDefs;
