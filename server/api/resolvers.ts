@@ -10,6 +10,8 @@ const resolvers = {
     /* get a destination information base on the name */
     destination: (_, { planet }, { dataSources }) =>
       dataSources.db.getDestination(planet),
+    /* Find list of all technolgies */
+    technologies: (_, __, { dataSources }) => dataSources.db.getTechnologies(),
   },
 };
 
