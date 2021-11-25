@@ -30,5 +30,19 @@ const typeDefs = gql`
     "Crew member image"
     img: String
   }
+  "Information of the destination"
+  type Destination {
+    destination: ID!
+    "Name of the planet"
+    name: String
+    "description of the planet"
+    message: String
+    "Total destination distance"
+    distance: String
+    "Total destination time for travel"
+    time: String
+    "Image of the planet"
+    img: String
+  }
 `;
 export default typeDefs;
