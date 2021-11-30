@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import styles from './technology.module.scss'
 /* images */
 // import vehicle images
 import vehicleLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg"
@@ -64,28 +64,28 @@ export default function technology() {
     }
   }
     return (
-        <article class="technology">
-  <h1 className="technology-title">
-    <span className="technology-title-number">03</span> {{ title }}
+        <article className={styles.["technology"]}>
+  <h1 className={styles["technology-title"]}>
+    <span className={styles["technology-title-number"]}>03</span> {{ title }}
   </h1>
 
-  <picture className="technology-img">
+  <picture className={styles["technology-img"]}>
     <source media="(min-width: 1440px)" [srcset]="technology.imgPortrait" />
     <img [src]="technology.imgLandscape" [alt]="technology.name" />
   </picture>
 
-  <nav className="technology-list">
+  <nav className={styles["technology-list"]}>
     <a (click)="getTechInfo('vehicle')">1</a>
     <a (click)="getTechInfo('spaceport')">2</a>
     <a (click)="getTechInfo('capsule')">3</a>
   </nav>
 
-  <h2 className="technology-name">
-    <span className="technology-name-label">THE TERMINOLOGY...</span
+  <h2 className={styles["technology-name"]}>
+    <span className={styles["technology-name-label"]}>THE TERMINOLOGY...</span
     >{{ technology.name }}
   </h2>
 
-  <P className="technology-bio">{{ technology.bio }}</P>
+  <P className={styles["technology-bio"]}>{{ technology.bio }}</P>
 </article>
     )
 }
