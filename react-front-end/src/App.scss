@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
-}
+@import "./sass/variables";
+// have a different backgroound image depending on the the page
+.page {
+  background-color: #0b0d17;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  &-home {
+    background-image: url("./assets/home/background-home-mobile.jpg");
+    @media (min-width: $medium) {
+      background-image: url("./assets/home/background-home-tablet.jpg");
+    }
+    @media (min-width: $big) {
+      background-image: url("./assets/home/background-home-desktop.jpg");
+    }
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  &-destination {
+    background-image: url("./assets/destination/background-destination-mobile.jpg");
+    @media (min-width: $medium) {
+      background-image: url("./assets/destination/background-destination-tablet.jpg");
+    }
+    @media (min-width: $big) {
+      background-image: url("./assets/destination/background-destination-desktop.jpg");
+    }
   }
-  to {
-    transform: rotate(360deg);
+  &-crew {
+    background-image: url("./assets/crew/background-crew-mobile.jpg");
+    @media (min-width: $medium) {
+      background-image: url("./assets/crew/background-crew-tablet.jpg");
+    }
+    @media (min-width: $big) {
+      background-image: url("./assets/crew/background-crew-desktop.jpg");
+    }
+  }
+  &-technology {
+    background-image: url("./assets/technology/background-technology-mobile.jpg");
+    @media (min-width: $medium) {
+      background-image: url("./assets/technology/background-technology-tablet.jpg");
+    }
+    @media (min-width: $big) {
+      background-image: url("./assets/technology/background-technology-desktop.jpg");
+    }
   }
 }
