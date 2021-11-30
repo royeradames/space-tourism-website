@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import styles from './crew.module.scss'
 /* images */
 import commander from '../../assets/crew/image-douglas-hurley.webp'
 import specialist from '../../assets/crew/image-mark-shuttleworth.webp'
@@ -68,22 +68,22 @@ export default function Crew() {
     }
   }
     return (
-        <article class="crew">
-  <h1 class="crew-title"><span>02 </span>MEET YOUR CREW</h1>
+        <article className={styles["crew"]}>
+  <h1 className={styles["crew-title"]}><span>02 </span>MEET YOUR CREW</h1>
 
-  <img src={page.img} alt={page.name} class="crew-img" />
+  <img src={page.img} alt={page.name} className={styles["crew-img"]} />
 
-  <nav class="crew-list">
+  <nav className={styles["crew-list"]}>
     <a onClick={() => getCrewInfo('commander')}></a>
     <a onClick={() => getCrewInfo('specialist')}></a>
     <a onClick={() => getCrewInfo('pilot')}></a>
     <a onClick={() => getCrewInfo('engineer')}></a>
   </nav>
 
-  <h2 class="crew-position">{page.position}</h2>
-  <h3 class="crew-name">{page.name }</h3>
+  <h2 className={styles["crew-position"]}>{page.position}</h2>
+  <h3 className={styles["crew-name"]}>{page.name }</h3>
 
-  <p class="crew-bio">{ page.bio}</p>
+  <p className={styles["crew-bio"]}>{ page.bio}</p>
 </article>
     )
 }
