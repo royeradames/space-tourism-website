@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+/* images */
+import moom from '../../assets/destination/image-moon.webp'
+import mars from '../../assets/destination/image-mars.webp'
+import europa from '../../assets/destination/image-europa.webp'
+import titan from '../../assets/destination/image-titan.webp'
 
 export default function Desteination() {
-    destination = {
+    const destinationData = {
     name: 'MOON',
     message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
@@ -9,14 +15,15 @@ export default function Desteination() {
           sites.`,
     distance: '384,400 km',
     time: '3 DAYS',
-    img: 'assets/destination/image-moon.webp',
+    img: moom,
   };
 
+  const [destination, setDestination] = useState(destinationData);
   /* change page data base on list selection */
-  getPlanetInfo(planetName: string) {
+  const getPlanetInfo = (planetName: string) => {
     switch (planetName) {
       case 'moon':
-        this.destination = {
+        setDestination({
           name: 'MOON',
           message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
@@ -25,38 +32,40 @@ export default function Desteination() {
           distance: '384,400 km',
           time: '3 DAYS',
           img: 'assets/destination/image-moon.webp',
-        };
+        })
+        
         break;
       case 'mars':
-        this.destination = {
+        setDestination({
           name: 'MARS',
           message: `Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!`,
           distance: '225 MIL. km',
           time: '9 MONTHS',
-          img: 'assets/destination/image-mars.webp',
-        };
+          img: mars,
+        })
         break;
       case 'europa':
-        this.destination = {
+        setDestination({
           name: 'EUROPA',
           message: `The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.`,
           distance: '628 MIL. km',
           time: '3 YEARS',
-          img: 'assets/destination/image-europa.webp',
-        };
+          img: europa,
+        })
         break;
       case 'titan':
-        this.destination = {
+        setDestination({
           name: 'Titan',
           message: `The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.`,
           distance: '1.6 BIL. km',
           time: '7 YEARS',
-          img: 'assets/destination/image-titan.webp',
-        };
+          img: titan,
+        })
+        
         break;
 
       default:
-        this.destination = {
+        setDestination({
           name: 'MOON',
           message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
@@ -65,7 +74,7 @@ export default function Desteination() {
           distance: '384,400 km',
           time: '3 DAYS',
           img: 'assets/destination/image-moon.webp',
-        };
+        })
         break;
     }
   }
