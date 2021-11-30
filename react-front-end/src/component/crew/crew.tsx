@@ -71,7 +71,7 @@ export default function Crew() {
         <article class="crew">
   <h1 class="crew-title"><span>02 </span>MEET YOUR CREW</h1>
 
-  <img [src]="img" [alt]="name" class="crew-img" />
+  <img src={page.img} alt={page.name} class="crew-img" />
 
   <nav class="crew-list">
     <a (click)="getCrewInfo('commander')"></a>
