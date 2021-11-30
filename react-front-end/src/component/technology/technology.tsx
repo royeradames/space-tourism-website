@@ -1,40 +1,7 @@
-<article class="technology">
-  <h1 class="technology-title">
-    <span class="technology-title-number">03</span> {{ title }}
-  </h1>
+import React from 'react'
 
-  <picture class="technology-img">
-    <source media="(min-width: 1440px)" [srcset]="technology.imgPortrait" />
-    <img [src]="technology.imgLandscape" [alt]="technology.name" />
-  </picture>
-
-  <nav class="technology-list">
-    <a (click)="getTechInfo('vehicle')">1</a>
-    <a (click)="getTechInfo('spaceport')">2</a>
-    <a (click)="getTechInfo('capsule')">3</a>
-  </nav>
-
-  <h2 class="technology-name">
-    <span class="technology-name-label">THE TERMINOLOGY...</span
-    >{{ technology.name }}
-  </h2>
-
-  <P class="technology-bio">{{ technology.bio }}</P>
-</article>
-
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-technology',
-  templateUrl: './technology.component.html',
-  styleUrls: ['./technology.component.scss'],
-})
-export class TechnologyComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  title = 'SPACE LAUNCH 101';
+export default function technology() {
+    title = 'SPACE LAUNCH 101';
 
   technology = {
     name: 'LAUNCH VEHICLE',
@@ -45,24 +12,6 @@ export class TechnologyComponent implements OnInit {
     imgLandscape: 'assets/technology/image-launch-vehicle-landscape.jpg',
     imgPortrait: 'assets/technology/image-launch-vehicle-portrait.jpg',
   };
-  getNav() {
-    const data = [
-      {
-        link: '/launch-venicle',
-        label: 1,
-      },
-      {
-        link: '/spaceport',
-        label: 2,
-      },
-      {
-        link: '/space-capsule',
-        label: 3,
-      },
-    ];
-
-    return data;
-  }
 
   getTechInfo(techName: string) {
     switch (techName) {
@@ -110,4 +59,34 @@ export class TechnologyComponent implements OnInit {
         break;
     }
   }
+    return (
+        <article class="technology">
+  <h1 class="technology-title">
+    <span class="technology-title-number">03</span> {{ title }}
+  </h1>
+
+  <picture class="technology-img">
+    <source media="(min-width: 1440px)" [srcset]="technology.imgPortrait" />
+    <img [src]="technology.imgLandscape" [alt]="technology.name" />
+  </picture>
+
+  <nav class="technology-list">
+    <a (click)="getTechInfo('vehicle')">1</a>
+    <a (click)="getTechInfo('spaceport')">2</a>
+    <a (click)="getTechInfo('capsule')">3</a>
+  </nav>
+
+  <h2 class="technology-name">
+    <span class="technology-name-label">THE TERMINOLOGY...</span
+    >{{ technology.name }}
+  </h2>
+
+  <P class="technology-bio">{{ technology.bio }}</P>
+</article>
+    )
 }
+
+
+
+
+  
