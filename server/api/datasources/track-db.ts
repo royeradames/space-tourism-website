@@ -20,6 +20,9 @@ class TrackDB extends SQLDataSource {
   getTechnology(name: string) {
     return this.knex("technology").where({ name }).first().cache(MINUTE);
   }
+  getHomeData() {
+    return this.knex("home").first().cache(MINUTE);
+  }
 }
 
 export default TrackDB;
