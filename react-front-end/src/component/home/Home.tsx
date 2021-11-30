@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./header.module.scss";
+import { Link } from "react-router-dom";
+
 export default function Home() {
   const pageData = {
     title: "SO, YOU WANT TO TRAVEL TO",
@@ -17,9 +19,9 @@ export default function Home() {
         <span>{page.titleSpan}</span>
       </h1>
       <p className={styles["home-message"]}>{page.message}</p>
-      <a className={styles["home-action"]} routerLink="/destination">
+      <Link className={styles["home-action"]} to="/destination">
         {page.action}
-      </a>
+      </Link>
     </article>
   );
 }
