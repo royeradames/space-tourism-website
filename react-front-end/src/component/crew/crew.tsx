@@ -80,10 +80,10 @@ export default function Crew() {
     <a onClick={() => getCrewInfo('engineer')}></a>
   </nav>
 
-  <h2 class="crew-position">{{ position }}</h2>
-  <h3 class="crew-name">{{ name }}</h3>
+  <h2 class="crew-position">{page.position}</h2>
+  <h3 class="crew-name">{page.name }</h3>
 
-  <P class="crew-bio">{{ bio }}</P>
+  <p class="crew-bio">{ page.bio}</p>
 </article>
     )
 }
