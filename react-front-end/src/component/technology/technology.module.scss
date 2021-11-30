@@ -56,7 +56,7 @@
     color: white;
     &-number {
       font-weight: 700;
-      color: rgba(255, 255, 255, 25%);
+      color: #ffffff40;
     }
 
     @media (min-width: $medium) {
@@ -103,7 +103,7 @@
       font-size: 1.6rem;
       letter-spacing: 0.1rem;
       color: white;
-      border: 0.1rem solid rgba(255, 255, 255, 25%);
+      border: 0.1rem solid #ffffff40;
       cursor: pointer;
 
       @media (min-width: $medium) {
