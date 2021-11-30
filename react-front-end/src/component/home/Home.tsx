@@ -9,15 +9,16 @@ export default function Home() {
     relax because we’ll give you a truly out of this world experience!`,
     action: "EXPLORE",
   };
+  const [page, setPage] = useState(pageData);
   return (
     <article class="home">
       <h1 class="home-title">
-        {{ title }}
-        <span>{{ titleSpan }}</span>
+        {page.title}
+        <span>{page.titleSpan}</span>
       </h1>
-      <p class="home-message">{{ message }}</p>
+      <p class="home-message">{page.message}</p>
       <a class="home-action" routerLink="/destination">
-        {{ action }}
+        {page.action}
       </a>
     </article>
   );
