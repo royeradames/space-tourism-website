@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function technology() {
     title = 'SPACE LAUNCH 101';
-
   technology = {
     name: 'LAUNCH VEHICLE',
     bio: `A launch vehicle or carrier rocket is a rocket-propelled vehicle used to
@@ -61,27 +60,27 @@ export default function technology() {
   }
     return (
         <article class="technology">
-  <h1 class="technology-title">
-    <span class="technology-title-number">03</span> {{ title }}
+  <h1 className="technology-title">
+    <span className="technology-title-number">03</span> {{ title }}
   </h1>
 
-  <picture class="technology-img">
+  <picture className="technology-img">
     <source media="(min-width: 1440px)" [srcset]="technology.imgPortrait" />
     <img [src]="technology.imgLandscape" [alt]="technology.name" />
   </picture>
 
-  <nav class="technology-list">
+  <nav className="technology-list">
     <a (click)="getTechInfo('vehicle')">1</a>
     <a (click)="getTechInfo('spaceport')">2</a>
     <a (click)="getTechInfo('capsule')">3</a>
   </nav>
 
-  <h2 class="technology-name">
-    <span class="technology-name-label">THE TERMINOLOGY...</span
+  <h2 className="technology-name">
+    <span className="technology-name-label">THE TERMINOLOGY...</span
     >{{ technology.name }}
   </h2>
 
-  <P class="technology-bio">{{ technology.bio }}</P>
+  <P className="technology-bio">{{ technology.bio }}</P>
 </article>
     )
 }
