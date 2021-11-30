@@ -8,7 +8,7 @@ export default function Header() {
   const [toggle, setIsToggle] = useState(false);
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles["header-log"]}>
+      <Link to="/" className={styles["header-logo"]}>
         <img src={logo} alt="Logo icon" />
       </Link>
 
@@ -18,7 +18,7 @@ export default function Header() {
       <nav className={`${styles.nav} ${toggle ? "" : styles["nav-hide"]}`}>
         <button
           onClick={() => setIsToggle(toggle!)}
-          className={styles["nav-close"]}
+          className={`${toggle ? "" : styles["nav-close"]}`}
         >
           close
         </button>
