@@ -8,7 +8,6 @@ import Destinataion from "./component/destination/destination";
 import Crew from "./component/crew/crew";
 
 function App() {
-  console.log(useMatch("/"));
   return (
     <main
       className={`page ${useMatch("/") ? "page-home" : ""} ${
