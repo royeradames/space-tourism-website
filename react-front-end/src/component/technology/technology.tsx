@@ -66,7 +66,7 @@ export default function technology() {
     return (
         <article className={styles.["technology"]}>
   <h1 className={styles["technology-title"]}>
-    <span className={styles["technology-title-number"]}>03</span> {{ title }}
+    <span className={styles["technology-title-number"]}>03</span> {tech.title}
   </h1>
 
   <picture className={styles["technology-img"]}>
@@ -82,10 +82,10 @@ export default function technology() {
 
   <h2 className={styles["technology-name"]}>
     <span className={styles["technology-name-label"]}>THE TERMINOLOGY...</span
-    >{{ technology.name }}
+    >{tech.name }
   </h2>
 
-  <P className={styles["technology-bio"]}>{{ technology.bio }}</P>
+  <P className={styles["technology-bio"]}>{tech.bio }</P>
 </article>
     )
 }
