@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import styles from "./header.module.scss";
 export default function Home() {
   const pageData = {
     title: "SO, YOU WANT TO TRAVEL TO",
@@ -9,15 +9,15 @@ export default function Home() {
     relax because we’ll give you a truly out of this world experience!`,
     action: "EXPLORE",
   };
-  const [page, setPage] = useState(pageData);
+  const [page] = useState(pageData);
   return (
-    <article class="home">
-      <h1 class="home-title">
+    <article className={styles.home}>
+      <h1 className={styles["home-title"]}>
         {page.title}
         <span>{page.titleSpan}</span>
       </h1>
-      <p class="home-message">{page.message}</p>
-      <a class="home-action" routerLink="/destination">
+      <p className={styles["home-message"]}>{page.message}</p>
+      <a className={styles["home-action"]} routerLink="/destination">
         {page.action}
       </a>
     </article>
