@@ -1,42 +1,7 @@
+import React from 'react'
 
-<article class="destination">
-  <h1 class="destination-title"><span>01</span> PICK YOUR DESTINATION</h1>
-  <img
-    [src]="destination.img"
-    [alt]="destination.name"
-    class="destination-img"
-  />
-
-  <nav class="destination-list">
-    <a (click)="getPlanetInfo('moon')" class="planet-list-moon">MOON</a>
-    <a (click)="getPlanetInfo('mars')" class="planet-list-mars">MARS</a>
-    <a (click)="getPlanetInfo('europa')" class="planet-list-europa">EUROPA</a>
-    <a (click)="getPlanetInfo('titan')" class="planet-list-titan">TITAN</a>
-  </nav>
-  <h2 class="destination-name">{{ destination.name }}</h2>
-  <p class="destination-message">{{ destination.message }}</p>
-
-  <hr class="destination-line" />
-  <h2 class="destination-label destination-label-distance">AVG. DISTANCE</h2>
-  <p class="destination-stats destination-stats-distance">
-    {{ destination.distance }}
-  </p>
-  <h2 class="destination-label destination-label-time">Est. travel time</h2>
-  <p class="destination-stats destination-stats-time">{{ destination.time }}</p>
-</article>
-
-import { Component, Input, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-destination',
-  templateUrl: './destination.component.html',
-  styleUrls: ['./destination.component.scss'],
-})
-export class DestinationComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
-  /* fill page with destination data*/
-  destination = {
+export default function Desteination() {
+    destination = {
     name: 'MOON',
     message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
@@ -104,4 +69,32 @@ export class DestinationComponent implements OnInit {
         break;
     }
   }
+
+    return (
+        <article class="destination">
+  <h1 class="destination-title"><span>01</span> PICK YOUR DESTINATION</h1>
+  <img
+    [src]="destination.img"
+    [alt]="destination.name"
+    class="destination-img"
+  />
+
+  <nav class="destination-list">
+    <a (click)="getPlanetInfo('moon')" class="planet-list-moon">MOON</a>
+    <a (click)="getPlanetInfo('mars')" class="planet-list-mars">MARS</a>
+    <a (click)="getPlanetInfo('europa')" class="planet-list-europa">EUROPA</a>
+    <a (click)="getPlanetInfo('titan')" class="planet-list-titan">TITAN</a>
+  </nav>
+  <h2 class="destination-name">{{ destination.name }}</h2>
+  <p class="destination-message">{{ destination.message }}</p>
+
+  <hr class="destination-line" />
+  <h2 class="destination-label destination-label-distance">AVG. DISTANCE</h2>
+  <p class="destination-stats destination-stats-distance">
+    {{ destination.distance }}
+  </p>
+  <h2 class="destination-label destination-label-time">Est. travel time</h2>
+  <p class="destination-stats destination-stats-time">{{ destination.time }}</p>
+</article>
+    )
 }
