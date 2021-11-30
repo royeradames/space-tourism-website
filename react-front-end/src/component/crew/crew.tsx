@@ -1,41 +1,14 @@
-<article class="crew">
-  <h1 class="crew-title"><span>02 </span>MEET YOUR CREW</h1>
+import React from 'react'
 
-  <img [src]="img" [alt]="name" class="crew-img" />
-
-  <nav class="crew-list">
-    <a (click)="getCrewInfo('commander')"></a>
-    <a (click)="getCrewInfo('specialist')"></a>
-    <a (click)="getCrewInfo('pilot')"></a>
-    <a (click)="getCrewInfo('engineer')"></a>
-  </nav>
-
-  <h2 class="crew-position">{{ position }}</h2>
-  <h3 class="crew-name">{{ name }}</h3>
-
-  <P class="crew-bio">{{ bio }}</P>
-</article>
-
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-crew',
-  templateUrl: './crew.component.html',
-  styleUrls: ['./crew.component.scss'],
-})
-export class CrewComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-  /* initial crew page data */
+export default function Crew() {
+    /* initial crew page data */
   position = 'COMMANDER';
   name = 'Douglas Hurley';
   bio = `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
     and former NASA astronaut. He launched into space for the third time as
     commander of Crew Dragon Demo-2.`;
   img = 'assets/crew/image-douglas-hurley.webp';
-
-  /* change template data base on list click */
+    /* change template data base on list click */
   getCrewInfo(crewMember: string) {
     switch (crewMember) {
       case 'commander':
@@ -75,4 +48,31 @@ export class CrewComponent implements OnInit {
         break;
     }
   }
+    return (
+        <article class="crew">
+  <h1 class="crew-title"><span>02 </span>MEET YOUR CREW</h1>
+
+  <img [src]="img" [alt]="name" class="crew-img" />
+
+  <nav class="crew-list">
+    <a (click)="getCrewInfo('commander')"></a>
+    <a (click)="getCrewInfo('specialist')"></a>
+    <a (click)="getCrewInfo('pilot')"></a>
+    <a (click)="getCrewInfo('engineer')"></a>
+  </nav>
+
+  <h2 class="crew-position">{{ position }}</h2>
+  <h3 class="crew-name">{{ name }}</h3>
+
+  <P class="crew-bio">{{ bio }}</P>
+</article>
+    )
+}
+
+
+
+
+  
+
+  
 }
