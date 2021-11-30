@@ -25,7 +25,10 @@ export default function technology() {
     //   use state technology
   const [tech, setTech] = useState(technology);
 
-  getTechInfo(techName: String) {
+//   define the name of the technology
+    const techNames = ["vehicle", "spaceport", "capsule"];
+  
+  const getTechInfo = (techName: String) => {
     switch (techName) {
       case 'vehicle':
           setTech({
@@ -66,7 +69,7 @@ export default function technology() {
     return (
         <article className={styles.["technology"]}>
   <h1 className={styles["technology-title"]}>
-    <span className={styles["technology-title-number"]}>03</span> {tech.title}
+    <span className={styles["technology-title-number"]}>03</span> {title}
   </h1>
 
   <picture className={styles["technology-img"]}>
@@ -75,9 +78,9 @@ export default function technology() {
   </picture>
 
   <nav className={styles["technology-list"]}>
-    <a (click)="getTechInfo('vehicle')">1</a>
-    <a (click)="getTechInfo('spaceport')">2</a>
-    <a (click)="getTechInfo('capsule')">3</a>
+    <a onClick={() => getTechInfo(techNames[0])}>1</a>
+    <a onClick={() => getTechInfo(techNames[1])}>2</a>
+    <a onClick={() => getTechInfo(techNames[2])}>3</a>
   </nav>
 
   <h2 className={styles["technology-name"]}>
@@ -85,7 +88,7 @@ export default function technology() {
     >{tech.name }
   </h2>
 
-  <P className={styles["technology-bio"]}>{tech.bio }</P>
+  <p className={styles["technology-bio"]}>{tech.bio }</p>
 </article>
     )
 }
