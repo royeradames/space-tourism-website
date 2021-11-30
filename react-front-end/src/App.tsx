@@ -5,13 +5,17 @@ import Header from "./component/header/header";
 import Home from "./component/home/home";
 import Technology from "./component/technology/technology";
 import Destinataion from "./component/destination/destination";
+import Crew from "./component/crew/crew";
+
 function App() {
   console.log(useMatch("/"));
   return (
     <main
       className={`${useMatch("/") ? "page-home" : ""} ${
         useMatch("/technology") ? "page-technology" : ""
-      } ${useMatch("/destination") ? "page-destination" : ""}`}
+      } ${useMatch("/destination") ? "page-destination" : ""} ${
+        useMatch("/crew") ? "page-crew" : ""
+      }`}
     >
       <Header />
       <Routes>
@@ -19,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="technology" element={<Technology />}></Route>
         <Route path="destination" element={<Destinataion />}></Route>
+        <Route path="crew" element={<Crew />}></Route>
       </Routes>
     </main>
   );
