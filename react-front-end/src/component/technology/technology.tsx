@@ -1,5 +1,16 @@
 import React, { useState } from 'react'
 
+/* images */
+// import vehicle images
+import vehicleLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg"
+import vehiclePortrait from "../../assets/technology/image-launch-vehicle-portrait.jpg"
+// import spaceport images
+import spaceportLandscape from "../../assets/technology/image-spaceport-landscape.jpg"
+import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.jpg"
+// import capsule images
+import capsuleLandscape from "../../assets/technology/image-capsule-landscape.jpg"
+import capsulePortrait from "../../assets/technology/image-capsule-portrait.jpg"
+
 export default function technology() {
     const [title, setTitle] = useState("SPACE LAUNCH 101")
   const technology = {
@@ -20,33 +31,34 @@ export default function technology() {
           setTech({
             name: 'LAUNCH VEHICLE',
             bio: `A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!`,
-            imgLandscape: 'assets/technology/image-launch-vehicle-landscape.jpg',
-            imgPortrait: 'assets/technology/image-launch-vehicle-portrait.jpg',
+            imgLandscape: vehicleLandscape,
+            imgPortrait: vehiclePortrait,
           })
         break;
       case 'spaceport':
             setTech({
                 name: 'SPACEPORT',
                 bio: `A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.`,
-                imgLandscape: 'assets/technology/image-spaceport-landscape.jpg',
-                imgPortrait: 'assets/technology/image-spaceport-portrait.jpg',
+                imgLandscape: spaceportLandscape,
+                imgPortrait: spaceportPortrait,
             })
         break;
       case 'capsule':
             setTech({
                 name: 'CAPSULE',
                 bio: `A capsule is a small, spherical container that is used to transport a payload from one location to another. The payload is usually a single piece of material, such as a piece of paper, a piece of plastic, or a small metal object. Capsules are often used to transport small objects, such as a small rocket, to a destination.`,
-                imgLandscape: 'assets/technology/image-capsule-landscape.jpg',
-                imgPortrait: 'assets/technology/image-capsule-portrait.jpg',
+                imgLandscape: capsuleLandscape,
+                imgPortrait: capsulePortrait,
             })
         break;
 
       default:
-        setTech({
+        case 'vehicle':
+          setTech({
             name: 'LAUNCH VEHICLE',
             bio: `A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!`,
-            imgLandscape: 'assets/technology/image-launch-vehicle-landscape.jpg',
-            imgPortrait: 'assets/technology/image-launch-vehicle-portrait.jpg',
+            imgLandscape: vehicleLandscape,
+            imgPortrait: vehiclePortrait,
           })
         break;
     }
