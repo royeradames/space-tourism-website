@@ -23,13 +23,11 @@
   }
   @media (min-width: $big) {
     grid-template:
-      " ..... . ........ " 25.1rem
       " title ... action " auto
       " ....... . action " 2.4rem
       " message . action " auto
-      " ..... ... ...... " 13.1rem
       / 1fr 38.6rem 1fr;
-    padding: 0 16.5rem;
+    padding: 25.1rem 16.5rem 13.1rem;
     justify-items: end;
   }
 
