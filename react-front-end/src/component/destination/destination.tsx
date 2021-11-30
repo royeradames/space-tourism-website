@@ -80,56 +80,64 @@ export default function Desteination() {
   };
 
   return (
-    <article className="destination">
-      <h1 className="destination-title">
+    <article className={styles["destination"]}>
+      <h1 className={styles["destination-title"]}>
         <span>01</span> PICK YOUR DESTINATION
       </h1>
       <img
         src={destination.img}
         alt={destination.name}
-        className="destination-img"
+        className={styles["destination-img"]}
       />
 
-      <nav className="destination-list">
+      <nav className={styles["destination-list"]}>
         <button
           onClick={() => getPlanetInfo("moon")}
-          className="planet-list-moon"
+          className={styles["planet-list-moon"]}
         >
           MOON
         </button>
         <button
           onClick={() => getPlanetInfo("mars")}
-          className="planet-list-mars"
+          className={styles["planet-list-mars"]}
         >
           MARS
         </button>
         <button
           onClick={() => getPlanetInfo("europa")}
-          className="planet-list-europa"
+          className={styles["planet-list-europa"]}
         >
           EUROPA
         </button>
         <button
           onClick={() => getPlanetInfo("titan")}
-          className="planet-list-titan"
+          className={styles["planet-list-titan"]}
         >
           TITAN
         </button>
       </nav>
-      <h2 className="destination-name">{destination.name}</h2>
+      <h2 className={styles["destination-name"]}>{destination.name}</h2>
       <p className="destination-message">{destination.message}</p>
 
-      <hr className="destination-line" />
-      <h2 className="destination-label destination-label-distance">
+      <hr className={styles["destination-line"]} />
+      <h2
+        className={`${styles["destination-label"]} ${styles["destination-label-distance"]}`}
+      >
         AVG. DISTANCE
       </h2>
-      <p className="destination-stats destination-stats-distance">
+      <p
+        className={`${styles["destination-stats"]} ${styles["destination-stats-distance"]}`}
+      >
         {destination.distance}
       </p>
-      <h2 className="destination-label destination-label-time">
+      <h2
+        className={`${styles["destination-label"]} ${styles["destination-label-time"]}`}
+      >
         Est. travel time
       </h2>
-      <p className="destination-stats destination-stats-time">
+      <p
+        className={`${styles["destination-stats"]} ${styles["destination-stats-time"]}`}
+      >
         {destination.time}
       </p>
     </article>
