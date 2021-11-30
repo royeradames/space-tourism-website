@@ -11,7 +11,7 @@ function App() {
   console.log(useMatch("/"));
   return (
     <main
-      className={`${useMatch("/") ? "page-home" : ""} ${
+      className={`page ${useMatch("/") ? "page-home" : ""} ${
         useMatch("/technology") ? "page-technology" : ""
       } ${useMatch("/destination") ? "page-destination" : ""} ${
         useMatch("/crew") ? "page-crew" : ""
