@@ -83,8 +83,8 @@ export default function Desteination() {
         <article className="destination">
   <h1 className="destination-title"><span>01</span> PICK YOUR DESTINATION</h1>
   <img
-    [src]="destination.img"
-    [alt]="destination.name"
+    src={destination.img}
+    alt={destination.name}
     className="destination-img"
   />
 
