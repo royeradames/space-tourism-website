@@ -74,10 +74,10 @@ export default function Crew() {
   <img src={page.img} alt={page.name} class="crew-img" />
 
   <nav class="crew-list">
-    <a (click)="getCrewInfo('commander')"></a>
-    <a (click)="getCrewInfo('specialist')"></a>
-    <a (click)="getCrewInfo('pilot')"></a>
-    <a (click)="getCrewInfo('engineer')"></a>
+    <a onClick={() => getCrewInfo('commander')}></a>
+    <a onClick={() => getCrewInfo('specialist')}></a>
+    <a onClick={() => getCrewInfo('pilot')}></a>
+    <a onClick={() => getCrewInfo('engineer')}></a>
   </nav>
 
   <h2 class="crew-position">{{ position }}</h2>
