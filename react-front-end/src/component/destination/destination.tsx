@@ -6,7 +6,7 @@ import mars from "../../assets/destination/image-mars.webp";
 import europa from "../../assets/destination/image-europa.webp";
 import titan from "../../assets/destination/image-titan.webp";
 
-export default function Desteination() {
+export default function Destinatation() {
   const destinationData = {
     name: "MOON",
     message: `See our planet as you’ve never seen it before. A perfect relaxing trip
@@ -31,7 +31,7 @@ export default function Desteination() {
           sites.`,
           distance: "384,400 km",
           time: "3 DAYS",
-          img: "assets/destination/image-moon.webp",
+          img: moom,
         });
 
         break;
@@ -117,7 +117,7 @@ export default function Desteination() {
         </button>
       </nav>
       <h2 className={styles["destination-name"]}>{destination.name}</h2>
-      <p className="destination-message">{destination.message}</p>
+      <p className={styles["destination-message"]}>{destination.message}</p>
 
       <hr className={styles["destination-line"]} />
       <h2
