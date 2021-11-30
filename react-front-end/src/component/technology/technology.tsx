@@ -78,9 +78,9 @@ export default function Technology() {
       </picture>
 
       <nav className={styles["technology-list"]}>
-        <a onClick={() => getTechInfo(techNames[0])}>1</a>
-        <a onClick={() => getTechInfo(techNames[1])}>2</a>
-        <a onClick={() => getTechInfo(techNames[2])}>3</a>
+        <button onClick={() => getTechInfo(techNames[0])}>1</button>
+        <button onClick={() => getTechInfo(techNames[1])}>2</button>
+        <button onClick={() => getTechInfo(techNames[2])}>3</button>
       </nav>
 
       <h2 className={styles["technology-name"]}>
