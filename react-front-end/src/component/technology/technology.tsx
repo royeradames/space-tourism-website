@@ -8,8 +8,8 @@ import vehiclePortrait from "../../assets/technology/image-launch-vehicle-portra
 import spaceportLandscape from "../../assets/technology/image-spaceport-landscape.jpg";
 import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.jpg";
 // import capsule images
-import capsuleLandscape from "../../assets/technology/image-capsule-landscape.jpg";
-import capsulePortrait from "../../assets/technology/image-capsule-portrait.jpg";
+import capsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
+import capsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 
 export default function Technology() {
   const [title] = useState("SPACE LAUNCH 101");
