@@ -80,30 +80,30 @@ export default function Desteination() {
   }
 
     return (
-        <article class="destination">
-  <h1 class="destination-title"><span>01</span> PICK YOUR DESTINATION</h1>
+        <article className="destination">
+  <h1 className="destination-title"><span>01</span> PICK YOUR DESTINATION</h1>
   <img
     [src]="destination.img"
     [alt]="destination.name"
-    class="destination-img"
+    className="destination-img"
   />
 
-  <nav class="destination-list">
-    <a (click)="getPlanetInfo('moon')" class="planet-list-moon">MOON</a>
-    <a (click)="getPlanetInfo('mars')" class="planet-list-mars">MARS</a>
-    <a (click)="getPlanetInfo('europa')" class="planet-list-europa">EUROPA</a>
-    <a (click)="getPlanetInfo('titan')" class="planet-list-titan">TITAN</a>
+  <nav className="destination-list">
+    <a (click)="getPlanetInfo('moon')" className="planet-list-moon">MOON</a>
+    <a (click)="getPlanetInfo('mars')" className="planet-list-mars">MARS</a>
+    <a (click)="getPlanetInfo('europa')" className="planet-list-europa">EUROPA</a>
+    <a (click)="getPlanetInfo('titan')" className="planet-list-titan">TITAN</a>
   </nav>
-  <h2 class="destination-name">{{ destination.name }}</h2>
-  <p class="destination-message">{{ destination.message }}</p>
+  <h2 className="destination-name">{{ destination.name }}</h2>
+  <p className="destination-message">{{ destination.message }}</p>
 
-  <hr class="destination-line" />
-  <h2 class="destination-label destination-label-distance">AVG. DISTANCE</h2>
-  <p class="destination-stats destination-stats-distance">
+  <hr className="destination-line" />
+  <h2 className="destination-label destination-label-distance">AVG. DISTANCE</h2>
+  <p className="destination-stats destination-stats-distance">
     {{ destination.distance }}
   </p>
-  <h2 class="destination-label destination-label-time">Est. travel time</h2>
-  <p class="destination-stats destination-stats-time">{{ destination.time }}</p>
+  <h2 className="destination-label destination-label-time">Est. travel time</h2>
+  <p className="destination-stats destination-stats-time">{{ destination.time }}</p>
 </article>
     )
 }
