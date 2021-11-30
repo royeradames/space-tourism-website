@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./header.module.scss";
+import styles from "./home.module.scss";
 import { Link } from "react-router-dom";
 
 export default function Home() {
