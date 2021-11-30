@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 /* images */
-import moom from '../../assets/destination/image-moon.webp'
-import mars from '../../assets/destination/image-mars.webp'
-import europa from '../../assets/destination/image-europa.webp'
-import titan from '../../assets/destination/image-titan.webp'
+import moom from "../../assets/destination/image-moon.webp";
+import mars from "../../assets/destination/image-mars.webp";
+import europa from "../../assets/destination/image-europa.webp";
+import titan from "../../assets/destination/image-titan.webp";
 
 export default function Desteination() {
-    const destinationData = {
-    name: 'MOON',
+  const destinationData = {
+    name: "MOON",
     message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
           there, take in some history by visiting the Luna 2 and Apollo 11 landing
           sites.`,
-    distance: '384,400 km',
-    time: '3 DAYS',
+    distance: "384,400 km",
+    time: "3 DAYS",
     img: moom,
   };
 
@@ -22,88 +22,107 @@ export default function Desteination() {
   /* change page data base on list selection */
   const getPlanetInfo = (planetName: string) => {
     switch (planetName) {
-      case 'moon':
+      case "moon":
         setDestination({
-          name: 'MOON',
+          name: "MOON",
           message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
           there, take in some history by visiting the Luna 2 and Apollo 11 landing
           sites.`,
-          distance: '384,400 km',
-          time: '3 DAYS',
-          img: 'assets/destination/image-moon.webp',
-        })
-        
+          distance: "384,400 km",
+          time: "3 DAYS",
+          img: "assets/destination/image-moon.webp",
+        });
+
         break;
-      case 'mars':
+      case "mars":
         setDestination({
-          name: 'MARS',
+          name: "MARS",
           message: `Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!`,
-          distance: '225 MIL. km',
-          time: '9 MONTHS',
+          distance: "225 MIL. km",
+          time: "9 MONTHS",
           img: mars,
-        })
+        });
         break;
-      case 'europa':
+      case "europa":
         setDestination({
-          name: 'EUROPA',
+          name: "EUROPA",
           message: `The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.`,
-          distance: '628 MIL. km',
-          time: '3 YEARS',
+          distance: "628 MIL. km",
+          time: "3 YEARS",
           img: europa,
-        })
+        });
         break;
-      case 'titan':
+      case "titan":
         setDestination({
-          name: 'Titan',
+          name: "Titan",
           message: `The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.`,
-          distance: '1.6 BIL. km',
-          time: '7 YEARS',
+          distance: "1.6 BIL. km",
+          time: "7 YEARS",
           img: titan,
-        })
-        
+        });
+
         break;
 
       default:
         setDestination({
-          name: 'MOON',
+          name: "MOON",
           message: `See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
           there, take in some history by visiting the Luna 2 and Apollo 11 landing
           sites.`,
-          distance: '384,400 km',
-          time: '3 DAYS',
-          img: 'assets/destination/image-moon.webp',
-        })
+          distance: "384,400 km",
+          time: "3 DAYS",
+          img: "assets/destination/image-moon.webp",
+        });
         break;
     }
-  }
+  };
 
-    return (
-        <article className="destination">
-  <h1 className="destination-title"><span>01</span> PICK YOUR DESTINATION</h1>
-  <img
-    src={destination.img}
-    alt={destination.name}
-    className="destination-img"
-  />
+  return (
+    <article className="destination">
+      <h1 className="destination-title">
+        <span>01</span> PICK YOUR DESTINATION
+      </h1>
+      <img
+        src={destination.img}
+        alt={destination.name}
+        className="destination-img"
+      />
 
-  <nav className="destination-list">
-    <a onClick={() => getPlanetInfo('moon')}className="planet-list-moon">MOON</a>
-    <a onClick={() => getPlanetInfo('mars')} className="planet-list-mars">MARS</a>
-    <a onClick={() => getPlanetInfo('europa')} className="planet-list-europa">EUROPA</a>
-    <a onClick={() => getPlanetInfo('titan')} className="planet-list-titan">TITAN</a>
-  </nav>
-  <h2 className="destination-name">{{ destination.name }}</h2>
-  <p className="destination-message">{{ destination.message }}</p>
+      <nav className="destination-list">
+        <a onClick={() => getPlanetInfo("moon")} className="planet-list-moon">
+          MOON
+        </a>
+        <a onClick={() => getPlanetInfo("mars")} className="planet-list-mars">
+          MARS
+        </a>
+        <a
+          onClick={() => getPlanetInfo("europa")}
+          className="planet-list-europa"
+        >
+          EUROPA
+        </a>
+        <a onClick={() => getPlanetInfo("titan")} className="planet-list-titan">
+          TITAN
+        </a>
+      </nav>
+      <h2 className="destination-name">{destination.name}</h2>
+      <p className="destination-message">{destination.message}</p>
 
-  <hr className="destination-line" />
-  <h2 className="destination-label destination-label-distance">AVG. DISTANCE</h2>
-  <p className="destination-stats destination-stats-distance">
-    {{ destination.distance }}
-  </p>
-  <h2 className="destination-label destination-label-time">Est. travel time</h2>
-  <p className="destination-stats destination-stats-time">{{ destination.time }}</p>
-</article>
-    )
+      <hr className="destination-line" />
+      <h2 className="destination-label destination-label-distance">
+        AVG. DISTANCE
+      </h2>
+      <p className="destination-stats destination-stats-distance">
+        {destination.distance}
+      </p>
+      <h2 className="destination-label destination-label-time">
+        Est. travel time
+      </h2>
+      <p className="destination-stats destination-stats-time">
+        {destination.time}
+      </p>
+    </article>
+  );
 }
