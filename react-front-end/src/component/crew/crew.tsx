@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Crew() {
     /* initial crew page data */
-  position = 'COMMANDER';
-  name = 'Douglas Hurley';
-  bio = `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
+    const pageData = {
+        position: 'COMMANDER',
+        name: 'Douglas Hurley',
+        bio: `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
     and former NASA astronaut. He launched into space for the third time as
-    commander of Crew Dragon Demo-2.`;
-  img = 'assets/crew/image-douglas-hurley.webp';
+    commander of Crew Dragon Demo-2.`,
+        img: 'assets/crew/image-douglas-hurley.webp',
+    }
+    const [page, setPage] = useState(pageData)
     /* change template data base on list click */
   getCrewInfo(crewMember: string) {
     switch (crewMember) {
