@@ -89,10 +89,10 @@ export default function Desteination() {
   />
 
   <nav className="destination-list">
-    <a (click)="getPlanetInfo('moon')" className="planet-list-moon">MOON</a>
-    <a (click)="getPlanetInfo('mars')" className="planet-list-mars">MARS</a>
-    <a (click)="getPlanetInfo('europa')" className="planet-list-europa">EUROPA</a>
-    <a (click)="getPlanetInfo('titan')" className="planet-list-titan">TITAN</a>
+    <a onClick={() => getPlanetInfo('moon')}className="planet-list-moon">MOON</a>
+    <a onClick={() => getPlanetInfo('mars')} className="planet-list-mars">MARS</a>
+    <a onClick={() => getPlanetInfo('europa')} className="planet-list-europa">EUROPA</a>
+    <a onClick={() => getPlanetInfo('titan')} className="planet-list-titan">TITAN</a>
   </nav>
   <h2 className="destination-name">{{ destination.name }}</h2>
   <p className="destination-message">{{ destination.message }}</p>
