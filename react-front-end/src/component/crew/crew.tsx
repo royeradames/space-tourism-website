@@ -1,91 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./crew.module.scss";
+import { useQuery, gql } from "@apollo/client";
+
 /* images */
 import commander from "../../assets/crew/image-douglas-hurley.webp";
 import specialist from "../../assets/crew/image-mark-shuttleworth.webp";
 import pilot from "../../assets/crew/image-victor-glover.webp";
 import engineer from "../../assets/crew/image-anousheh-ansari.webp";
 
-export default function Crew() {
-  /* initial crew page data */
-  const pageData = {
-    position: "COMMANDER",
-    name: "Douglas Hurley",
-    bio: `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
-    and former NASA astronaut. He launched into space for the third time as
-    commander of Crew Dragon Demo-2.`,
-    img: commander,
-  };
-  const [page, setPage] = useState(pageData);
-  /* change template data base on list click */
-  const getCrewInfo = (crewMember: string) => {
-    switch (crewMember) {
-      case "commander":
-        setPage({
-          position: "COMMANDER",
-          name: "Douglas Hurley",
-          bio: `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
-          and former NASA astronaut. He launched into space for the third time as
-          commander of Crew Dragon Demo-2.`,
-          img: commander,
-        });
-        break;
-      case "specialist":
-        setPage({
-          position: "Mission Specialist",
-          name: "MARK SHUTTLEWORTH",
-          bio: `Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.`,
-          img: specialist,
-        });
-        break;
-      case "pilot":
-        setPage({
-          position: "PILOT",
-          name: "Victor Glover",
-          bio: `Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.`,
-          img: pilot,
-        });
-        break;
-      case "engineer":
-        setPage({
-          position: "Flight Engineer",
-          name: "Anousheh Ansari",
-          bio: `Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.`,
-          img: engineer,
-        });
-        break;
+interface PageData {
+  position: string;
+  name: string;
+  bio: string;
+  img: string;
+}
 
-      default:
-        setPage({
-          position: "COMMANDER",
-          name: "Douglas Hurley",
-          bio: `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
-          and former NASA astronaut. He launched into space for the third time as
-          commander of Crew Dragon Demo-2.`,
-          img: commander,
-        });
-        break;
+export const CREW_QUERY = gql`
+  query getCrewMember {
+    crew {
+      position
+      name
+      bio
+      img
     }
-  };
-  return (
-    <article className={styles["crew"]}>
-      <h1 className={styles["crew-title"]}>
-        <span>02 </span>MEET YOUR CREW
-      </h1>
+  }
+`;
 
-      <img src={page.img} alt={page.name} className={styles["crew-img"]} />
+export default function Crew() {
+  /* get crew member data from graphql */
+  const { loading, error, data } = useQuery(CREW_QUERY);
 
-      <nav className={styles["crew-list"]}>
-        <button onClick={() => getCrewInfo("commander")}></button>
-        <button onClick={() => getCrewInfo("specialist")}></button>
-        <button onClick={() => getCrewInfo("pilot")}></button>
-        <button onClick={() => getCrewInfo("engineer")}></button>
-      </nav>
+  // innitialize page with commander data
+  const [page, setPage] = useState<undefined | PageData>(undefined);
 
-      <h2 className={styles["crew-position"]}>{page.position}</h2>
-      <h3 className={styles["crew-name"]}>{page.name}</h3>
+  useEffect(() => {
+    if (loading === false && data) {
+      setPage({ ...data.crew[0], img: commander });
+    }
+  }, [loading, data]);
 
-      <p className={styles["crew-bio"]}>{page.bio}</p>
-    </article>
-  );
+  // handling loading
+  if (loading) return <p>Loading...</p>;
+  // handling errors
+  if (error) return <p>Error: {error.message}</p>;
+  // handling data
+  if (page) {
+    const { crew }: { crew: PageData[] } = data;
+    return (
+      <article className={`${styles["crew"]}`}>
+        <h1 className={styles["crew-title"]}>
+          <span>02 </span>MEET YOUR CREW
+        </h1>
+
+        <img src={page.img} alt={page.name} className={styles["crew-img"]} />
+
+        <nav className={styles["crew-list"]}>
+          <button
+            onClick={() => setPage({ ...crew[0], img: commander })}
+          ></button>
+          <button
+            onClick={() => setPage({ ...crew[1], img: specialist })}
+          ></button>
+          <button onClick={() => setPage({ ...crew[2], img: pilot })}></button>
+          <button
+            onClick={() => setPage({ ...crew[3], img: engineer })}
+          ></button>
+        </nav>
+
+        <h2 className={styles["crew-position"]}>{page.position}</h2>
+        <h3 className={styles["crew-name"]}>{page.name}</h3>
+
+        <p className={styles["crew-bio"]}>{page.bio}</p>
+      </article>
+    );
+  }
+  // while waiting for data
+  return null;
 }
