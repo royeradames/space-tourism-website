@@ -12,13 +12,20 @@ export default function Header() {
         <img src={logo} alt="Logo icon" />
       </Link>
 
-      <button className={styles.nav} onClick={() => setIsToggle(!toggle)}>
+      <button
+        className={`${styles["nav-toggle"]} ${
+          toggle ? styles["nav-hide"] : ""
+        }`}
+        onClick={() => setIsToggle(!toggle)}
+      >
         Menu
       </button>
       <nav className={`${styles.nav} ${toggle ? "" : styles["nav-hide"]}`}>
         <button
-          onClick={() => setIsToggle(toggle!)}
-          className={`${toggle ? "" : styles["nav-close"]}`}
+          onClick={() => setIsToggle(!toggle)}
+          className={`${!toggle ? styles["nav-hide"] : ""} ${
+            styles["nav-close"]
+          }`}
         >
           close
         </button>
