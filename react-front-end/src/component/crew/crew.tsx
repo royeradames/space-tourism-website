@@ -39,12 +39,10 @@ export default function Crew() {
     }
   }, [loading, data]);
 
-  // handling loading
-  if (loading) return <p>Loading...</p>;
   // handling errors
   if (error) return <p>Error: {error.message}</p>;
   // handling data
-  if (page) {
+  else if (page) {
     const { crew }: { crew: PageData[] } = data;
     return (
       <article className={`${styles["crew"]}`}>
@@ -74,6 +72,6 @@ export default function Crew() {
       </article>
     );
   }
-  // while waiting for data
-  return null;
+  // handling loading
+  else return <p>Loading...</p>;
 }
