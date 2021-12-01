@@ -1,6 +1,7 @@
 @import "./sass/variables";
 // have a different backgroound image depending on the the page
 .page {
+  min-height: 100vh;
   background-color: #0b0d17;
   background-repeat: no-repeat;
   background-size: cover;
