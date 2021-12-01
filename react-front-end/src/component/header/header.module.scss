@@ -22,17 +22,18 @@
     }
   }
   @media (min-width: $big) {
+    // make a line that closes the icon and the nav gap
     &::before {
       grid-area: line;
 
       // make the line grow with the line area
       justify-self: stretch;
 
-      // make born line
+      // make line
       content: "";
       height: 0.1rem;
       background-color: white;
-      opacity: 25%;
+      opacity: 0.25;
 
       // overlap line with menu
       position: relative;
