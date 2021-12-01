@@ -45,9 +45,9 @@
       ". img" 1.5rem
       "name img" max-content
       ". img" 4.3rem
-      "bio img" auto
+      "bio img" minmax(16rem, auto)
       ". img" 12rem
-      "list img" auto
+      "list img"
       ". img" 9.4rem
       / 1fr auto;
     padding: 6.2rem 16.65rem 0;
