@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./technology.module.scss";
+import { useQuery, gql } from "@apollo/client";
+
 /* images */
 // import vehicle images
 import vehicleLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg";
@@ -11,86 +13,85 @@ import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.
 import capsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
 import capsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 
-export default function Technology() {
-  const [title] = useState("SPACE LAUNCH 101");
-  const technology = {
-    name: "LAUNCH VEHICLE",
-    bio: `A launch vehicle or carrier rocket is a rocket-propelled vehicle used to
-    carry a payload from Earth's surface to space, usually to Earth orbit or
-    beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing
-    150 metres tall, it's quite an awe-inspiring sight on the launch pad!`,
-    imgLandscape: vehicleLandscape,
-    imgPortrait: vehiclePortrait,
-  };
-  //   use state technology
-  const [tech, setTech] = useState(technology);
-
-  //   define the name of the technology
-  const techNames = ["vehicle", "spaceport", "capsule"];
-
-  const getTechInfo = (techName: String) => {
-    switch (techName) {
-      case "vehicle":
-        setTech({
-          name: "LAUNCH VEHICLE",
-          bio: `A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!`,
-          imgLandscape: vehicleLandscape,
-          imgPortrait: vehiclePortrait,
-        });
-        break;
-      case "spaceport":
-        setTech({
-          name: "SPACEPORT",
-          bio: `A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.`,
-          imgLandscape: spaceportLandscape,
-          imgPortrait: spaceportPortrait,
-        });
-        break;
-      case "capsule":
-        setTech({
-          name: "CAPSULE",
-          bio: `A capsule is a small, spherical container that is used to transport a payload from one location to another. The payload is usually a single piece of material, such as a piece of paper, a piece of plastic, or a small metal object. Capsules are often used to transport small objects, such as a small rocket, to a destination.`,
-          imgLandscape: capsuleLandscape,
-          imgPortrait: capsulePortrait,
-        });
-        break;
-
-      default:
-      case "vehicle":
-        setTech({
-          name: "LAUNCH VEHICLE",
-          bio: `A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!`,
-          imgLandscape: vehicleLandscape,
-          imgPortrait: vehiclePortrait,
-        });
-        break;
+export interface TechnologyData {
+  name: string;
+  bio: string;
+  imgLandscape: string;
+  imgPortrait: string;
+}
+export const GET_TECHNOLOGY = gql`
+  query getDestinations {
+    technologies {
+      name
+      bio
     }
-  };
-  return (
-    <article className={styles["technology"]}>
-      <h1 className={styles["technology-title"]}>
-        <span className={styles["technology-title-number"]}>03</span> {title}
-      </h1>
+  }
+`;
+export default function Technology() {
+  const { error, data } = useQuery(GET_TECHNOLOGY);
+  const [title] = useState("SPACE LAUNCH 101");
+  // current technology in display
+  const [tech, setTech] = useState<undefined | TechnologyData>(undefined);
 
-      <picture className={styles["technology-img"]}>
-        <source media="(min-width: 1440px)" srcSet={tech.imgPortrait} />
-        <img src={tech.imgLandscape} alt={tech.name} />
-      </picture>
+  useEffect(() => {
+    if (data) {
+      const vehicle = {
+        ...data.technologies[0],
+        imgLandscape: vehicleLandscape,
+        imgPortrait: vehiclePortrait,
+      };
+      setTech(vehicle);
+    }
+  }, [data]);
+  // handle error
+  if (error) return <p>Error: {error.message}</p>;
+  // handle data
+  else if (tech) {
+    let [vehicle, spaceport, capsule] = data.technologies;
+    // add images to the technologies
+    vehicle = {
+      ...vehicle,
+      imgLandscape: vehicleLandscape,
+      imgPortrait: vehiclePortrait,
+    };
+    spaceport = {
+      ...spaceport,
+      imgLandscape: spaceportLandscape,
+      imgPortrait: spaceportPortrait,
+    };
+    capsule = {
+      ...capsule,
+      imgLandscape: capsuleLandscape,
+      imgPortrait: capsulePortrait,
+    };
+    return (
+      <article className={styles["technology"]}>
+        <h1 className={styles["technology-title"]}>
+          <span className={styles["technology-title-number"]}>03</span> {title}
+        </h1>
 
-      <nav className={styles["technology-list"]}>
-        <button onClick={() => getTechInfo(techNames[0])}>1</button>
-        <button onClick={() => getTechInfo(techNames[1])}>2</button>
-        <button onClick={() => getTechInfo(techNames[2])}>3</button>
-      </nav>
+        <picture className={styles["technology-img"]}>
+          <source media="(min-width: 1440px)" srcSet={tech.imgPortrait} />
+          <img src={tech.imgLandscape} alt={tech.name} />
+        </picture>
 
-      <h2 className={styles["technology-name"]}>
-        <span className={styles["technology-name-label"]}>
-          THE TERMINOLOGY...
-        </span>
-        {tech.name}
-      </h2>
+        <nav className={styles["technology-list"]}>
+          <button onClick={() => setTech(vehicle)}>1</button>
+          <button onClick={() => setTech(spaceport)}>2</button>
+          <button onClick={() => setTech(capsule)}>3</button>
+        </nav>
 
-      <p className={styles["technology-bio"]}>{tech.bio}</p>
-    </article>
-  );
+        <h2 className={styles["technology-name"]}>
+          <span className={styles["technology-name-label"]}>
+            THE TERMINOLOGY...
+          </span>
+          {tech.name}
+        </h2>
+
+        <p className={styles["technology-bio"]}>{tech.bio}</p>
+      </article>
+    );
+  }
+  // handle loading
+  else return <p>Loading...</p>;
 }
