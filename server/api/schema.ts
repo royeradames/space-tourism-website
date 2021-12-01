@@ -32,7 +32,7 @@ const typeDefs = gql`
   }
   "Information of the destination"
   type Destination {
-    destination: ID!
+    destinationId: ID!
     "Name of the planet"
     name: String
     "description of the planet"
