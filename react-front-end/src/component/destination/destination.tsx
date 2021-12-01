@@ -6,6 +6,7 @@ import moonImg from "../../assets/destination/image-moon.webp";
 import marsImg from "../../assets/destination/image-mars.webp";
 import europaImg from "../../assets/destination/image-europa.webp";
 import titanImg from "../../assets/destination/image-titan.webp";
+import Spinner from "../spinner/spinner";
 
 interface DestinationData {
   name: string;
@@ -130,5 +131,5 @@ export default function Destinatation() {
     );
   }
   // handle loading
-  else return <div>Loading...</div>;
+  else return <Spinner />;
 }

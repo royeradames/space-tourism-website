@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./home.module.scss";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
-
+import Spinner from "../spinner/spinner";
 /* query to get home page data */
 export const HOME_PAGE_QUERY = gql`
   query getHomeData {
@@ -42,5 +42,5 @@ export default function Home() {
     );
   }
   // handle loading
-  else return <p>Loading...</p>;
+  else return <Spinner />;
 }

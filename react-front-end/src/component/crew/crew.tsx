@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./crew.module.scss";
 import { useQuery, gql } from "@apollo/client";
+import Spinner from "../spinner/spinner";
 
 /* images */
 import commander from "../../assets/crew/image-douglas-hurley.webp";
@@ -73,5 +74,5 @@ export default function Crew() {
     );
   }
   // handling loading
-  else return <p>Loading...</p>;
+  else return <Spinner />;
 }

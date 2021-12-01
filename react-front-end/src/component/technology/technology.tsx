@@ -12,6 +12,7 @@ import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.
 // import capsule images
 import capsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
 import capsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
+import Spinner from "../spinner/spinner";
 
 export interface TechnologyData {
   name: string;
@@ -93,5 +94,5 @@ export default function Technology() {
     );
   }
   // handle loading
-  else return <p>Loading...</p>;
+  else return <Spinner />;
 }
