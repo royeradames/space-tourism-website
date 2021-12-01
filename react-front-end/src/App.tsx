@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, useMatch } from "react-router-dom";
 import "./App.scss";
 import Header from "./component/header/header";
-import Home from "./component/home/Home";
+import Home from "./component/home/home";
 import Technology from "./component/technology/technology";
 import Destinataion from "./component/destination/destination";
 import Crew from "./component/crew/crew";
