@@ -22,21 +22,25 @@ interface PageData {
   action: string;
 }
 export default function Home() {
-  const { loading, error, data } = useQuery(HOME_PAGE_QUERY);
-  if (loading) return <p>Loading...</p>;
+  const { error, data } = useQuery(HOME_PAGE_QUERY);
+  // handle error
   if (error) return <p>Error :(</p>;
-  const { home }: { home: PageData } = data;
-
-  return (
-    <article className={styles.home}>
-      <h1 className={styles["home-title"]}>
-        {home.title}
-        <span>{home.titleSpan}</span>
-      </h1>
-      <p className={styles["home-message"]}>{home.message}</p>
-      <Link className={styles["home-action"]} to="/destination">
-        {home.action}
-      </Link>
-    </article>
-  );
+  // handle data
+  else if (data) {
+    const { home }: { home: PageData } = data;
+    return (
+      <article className={styles.home}>
+        <h1 className={styles["home-title"]}>
+          {home.title}
+          <span>{home.titleSpan}</span>
+        </h1>
+        <p className={styles["home-message"]}>{home.message}</p>
+        <Link className={styles["home-action"]} to="/destination">
+          {home.action}
+        </Link>
+      </article>
+    );
+  }
+  // handle loading
+  else return <p>Loading...</p>;
 }
