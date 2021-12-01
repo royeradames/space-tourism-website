@@ -6,7 +6,7 @@ class TrackDB extends SQLDataSource {
     return this.knex("crew").cache(MINUTE);
   }
   getCrewMember(position: string) {
-    return this.knex("crew").where({ name: position }).first().cache(MINUTE);
+    return this.knex("crew").where({ position }).first().cache(MINUTE);
   }
   getDestinations() {
     return this.knex("destination").cache(MINUTE);
