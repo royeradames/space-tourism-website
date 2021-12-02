@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node apolloIndex.ts",
     "start": "node dist/apolloIndex.js",
+    "build": "tsc -p .",
     "test": "cross-env DB_ENV=testing jest --watch -f --runInBand api/useful_links/tests"
   },
   "author": "",
