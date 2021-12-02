@@ -5,7 +5,7 @@
   "main": "applloIndex.js",
   "scripts": {
     "dev": "nodemon --exec ts-node apolloIndex.ts",
-    "start": "node src/dist/apolloIndex.js",
+    "start": "node dist/apolloIndex.js",
     "test": "cross-env DB_ENV=testing jest --watch -f --runInBand api/useful_links/tests"
   },
   "author": "",
