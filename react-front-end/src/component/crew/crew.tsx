@@ -8,6 +8,7 @@ import commander from "../../assets/crew/image-douglas-hurley.webp";
 import specialist from "../../assets/crew/image-mark-shuttleworth.webp";
 import pilot from "../../assets/crew/image-victor-glover.webp";
 import engineer from "../../assets/crew/image-anousheh-ansari.webp";
+import ErrorHandler from "../errorHandler/errorHandler";
 
 interface PageData {
   position: string;
@@ -20,7 +21,7 @@ export const CREW_QUERY = gql`
   query getCrewMember {
     crew {
       position
-      name
+      namea
       bio
       img
     }
@@ -41,7 +42,7 @@ export default function Crew() {
   }, [loading, data]);
 
   // handling errors
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <ErrorHandler error={error} />;
   // handling data
   else if (page) {
     const { crew }: { crew: PageData[] } = data;

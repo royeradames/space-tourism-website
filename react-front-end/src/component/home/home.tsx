@@ -3,6 +3,7 @@ import styles from "./home.module.scss";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Spinner from "../spinner/spinner";
+import ErrorHandler from "../errorHandler/errorHandler";
 /* query to get home page data */
 export const HOME_PAGE_QUERY = gql`
   query getHomeData {
@@ -24,7 +25,7 @@ interface PageData {
 export default function Home() {
   const { error, data } = useQuery(HOME_PAGE_QUERY);
   // handle error
-  if (error) return <p>Error :(</p>;
+  if (error) return <ErrorHandler error={error} />;
   // handle data
   else if (data) {
     const { home }: { home: PageData } = data;

@@ -7,6 +7,7 @@ import marsImg from "../../assets/destination/image-mars.webp";
 import europaImg from "../../assets/destination/image-europa.webp";
 import titanImg from "../../assets/destination/image-titan.webp";
 import Spinner from "../spinner/spinner";
+import ErrorHandler from "../errorHandler/errorHandler";
 
 interface DestinationData {
   name: string;
@@ -43,9 +44,8 @@ export default function Destinatation() {
       setDestination(moon);
     }
   }, [loading, data]);
-
   // handle error
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <ErrorHandler error={error} />;
   // handle the data
   else if (destination) {
     let [moon, mars, europa, titan] = data.destinations;

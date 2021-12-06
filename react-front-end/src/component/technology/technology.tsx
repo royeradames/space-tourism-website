@@ -13,6 +13,7 @@ import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.
 import capsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
 import capsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 import Spinner from "../spinner/spinner";
+import ErrorHandler from "../errorHandler/errorHandler";
 
 export interface TechnologyData {
   name: string;
@@ -45,7 +46,7 @@ export default function Technology() {
     }
   }, [data]);
   // handle error
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <ErrorHandler error={error} />;
   // handle data
   else if (tech) {
     let [vehicle, spaceport, capsule] = data.technologies;
