@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: process.env.URL || "http://localhost:4000/",
+  uri: "https://royer-space-tourism-website.herokuapp.com/",
   cache: new InMemoryCache(),
 });
 ReactDOM.render(
