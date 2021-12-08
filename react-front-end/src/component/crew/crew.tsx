@@ -21,7 +21,7 @@ export const CREW_QUERY = gql`
   query getCrewMember {
     crew {
       position
-      namea
+      name
       bio
       img
     }
