@@ -1,5 +1,5 @@
 # Space Tourism
-![Space Tourism design file](./readme-assets/design-file.png)
+![Space Tourism design file](./readme-assets/design-file.PNG)
 ![Space Tourism in Desktop](./readme-assets/space-tourism.gif)
 
 ## 2 key folders
