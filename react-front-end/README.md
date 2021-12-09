@@ -1,7 +1,7 @@
 # Space tourism website
-Space tourism is human space travel for recreational purposes. There are several different types of space tourism, including orbital, suborbital and lunar space tourism.
+Space tourism is human space travel for recreational purposes. There are several different types of space tourism, including orbital, suborbital, and lunar space tourism.
 
-Chooce us for this adventure. See the places to explore. Get to know the crew, and the technologies that make it possible.
+Choose us for this adventure. See the places to explore. Please get to know the crew and the technologies that make it possible.
 
 ## Table of contents
 
