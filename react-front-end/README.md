@@ -1,46 +1,116 @@
-# Getting Started with Create React App
+# Space tourism website
+Space tourism is human space travel for recreational purposes. There are several different types of space tourism, including orbital, suborbital and lunar space tourism.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Chooce us for this adventure. See the places to explore. Get to know the crew, and the technologies that make it possible.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Space tourism website](#space-tourism-website)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [Highlights](#highlights)
+      - [Handling GraphQL client](#handling-graphql-client)
+      - [CSS Modules](#css-modules)
+    - [Continued development](#continued-development)
+  - [Author](#author)
 
-### `yarn start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### The challenge
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Users should be able to:
 
-### `yarn test`
+- View the optimal layout for each of the website's pages depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View each page and be able to toggle between the tabs to see new information
+### Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Live website](../readme-assets/readme-assets/../space-tourism.gif)
 
-### `yarn build`
+### Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Live Site URL: [React front-end](https://react-spacetourism.vercel.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## My process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built with
+- Semantic HTML5 markup
+- SASS
+- CSS Modules
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- Apollo GraphQL
 
-### `yarn eject`
+### Highlights
+#### Handling GraphQL client
+```tsx
+  // handling errors
+  if (error) return <ErrorHandler error={error} />;
+  // handling data
+  else if (page) {
+    const { crew }: { crew: PageData[] } = data;
+    return (
+      <article className={`${styles["crew"]}`}>
+        ...
+      </article>
+    );
+  }
+  // handling loading
+  else return <Spinner />;
+```
+#### CSS Modules
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Adding component specific classes with CSS mdoules.
+```tsx
+  import styles from "./crew.module.scss";
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  <article className={`${styles["crew"]}`}>
+        <h1 className={styles["crew-title"]}>
+          <span>02 </span>MEET YOUR CREW
+        </h1>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+        <img src={page.img} alt={page.name} className={styles["crew-img"]} />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+        <nav className={styles["crew-list"]}>
+          <button
+            onClick={() => setPage({ ...crew[0], img: commander })}
+          ></button>
+          <button
+            onClick={() => setPage({ ...crew[1], img: specialist })}
+          ></button>
+          <button onClick={() => setPage({ ...crew[2], img: pilot })}></button>
+          <button
+            onClick={() => setPage({ ...crew[3], img: engineer })}
+          ></button>
+        </nav>
 
-## Learn More
+        <h2 className={styles["crew-position"]}>{page.position}</h2>
+        <h3 className={styles["crew-name"]}>{page.name}</h3>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+        <p className={styles["crew-bio"]}>{page.bio}</p>
+      </article>
+```
+Import general styles that affect all components.
+```tsx
+// added to the home component
+import "./App.scss";
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Continued development
+Areas that I want to focus on in future projects.
+
+- Adding the images to a image server and using the graphql server to share the url of the image.
+- Adding Content Management System (CMS) for handling the edit, update and delete functionalities.
+  
+
+## Author
+
+- Website - [Royer Adames](https://www.royeradames.com)
+- LinkedIn - [@royeradames](https://www.linkedin.com/in/royer-adames/)
