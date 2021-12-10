@@ -4,7 +4,7 @@
   background-color: #0b0d17;
   background-repeat: no-repeat;
   background-size: cover;
-
+  min-height: 100vh;
   &-home {
     background-image: url("../assets/home/background-home-mobile.jpg");
     @media (min-width: $medium) {
