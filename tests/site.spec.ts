@@ -316,10 +316,13 @@ test("narrow pointer hover states and interactive target sizes remain visible", 
       if ((await control.getAttribute("class")) === "skip-link") continue;
       const box = await control.boundingBox();
       expect(box).not.toBeNull();
-      // The design's crew dots (26 px apart) and 40 px technology pager meet the 24 px WCAG 2.5.8 floor.
+      // 44 px everywhere, except the design's crew dots (26 px apart) and 40 px phone technology pager,
+      // which meet the 24 px WCAG 2.5.8 floor.
+      const small = await control.evaluate((element) => Boolean(element.closest(".crew-nav, .technology-nav")));
+      const floor = small ? 24 : 44;
       if (box) {
-        expect(box.width).toBeGreaterThanOrEqual(24);
-        expect(box.height).toBeGreaterThanOrEqual(24);
+        expect(box.width, await control.innerText()).toBeGreaterThanOrEqual(floor);
+        expect(box.height, await control.innerText()).toBeGreaterThanOrEqual(floor);
       }
     }
   }

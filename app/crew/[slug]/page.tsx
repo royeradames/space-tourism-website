@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/app/site";
 import { notFound, permanentRedirect } from "next/navigation";
 import { crew } from "@/lib/content";
 import { CrewPage } from "@/components/crew-page";
@@ -12,6 +13,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: item?.name ?? "Not found",
     alternates: item ? { canonical: item.href } : undefined,
+    openGraph: item ? pageOpenGraph(item.name, item.bio) : undefined,
     description: item ? item.bio : undefined,
   };
 }

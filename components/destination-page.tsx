@@ -2,7 +2,7 @@ import { destinations, type Destination } from "@/lib/content";
 import { PageShell, SectionTitle } from "./page-shell";
 export function DestinationPage({ destination }: { destination: Destination }) {
   return (
-    <PageShell section="destination">
+    <PageShell section="destination" navCurrent={destination.href === "/destination" ? "page" : "true"}>
       <article className="destination content-width">
         <SectionTitle number="01">Pick your destination</SectionTitle>
         <div className="planet-frame">

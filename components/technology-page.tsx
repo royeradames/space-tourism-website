@@ -2,7 +2,7 @@ import { technologies, type Technology } from "@/lib/content";
 import { PageShell, SectionTitle } from "./page-shell";
 export function TechnologyPage({ technology }: { technology: Technology }) {
   return (
-    <PageShell section="technology">
+    <PageShell section="technology" navCurrent={technology.href === "/technology" ? "page" : "true"}>
       <article className="technology">
         <SectionTitle number="03">Space launch 101</SectionTitle>
         <picture className="technology-image">

@@ -133,6 +133,34 @@ test("mobile frames: centred title, 150 px planet, menu panel 254 px wide with b
   expect((await page.locator(".technology-nav a").first().boundingBox())!.width).toBe(40);
 });
 
+test("the phone menu closes when focus or a press leaves it, and child routes mark their section with aria-current=true", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/crew/victor-glover");
+  await page.locator(".mobile-menu summary").click();
+  const panel = page.locator(".mobile-menu nav");
+  await expect(panel).toBeVisible();
+  await panel.getByRole("link", { name: "Technology" }).focus();
+  await page.keyboard.press("Tab");
+  await expect(panel).toBeHidden();
+  await page.locator(".mobile-menu summary").click();
+  await expect(panel).toBeVisible();
+  await page.mouse.click(40, 600);
+  await expect(panel).toBeHidden();
+  await expect(page.locator('.mobile-menu nav a[href="/crew"]')).toHaveAttribute("aria-current", "true");
+  await page.goto("/crew");
+  await expect(page.locator('.mobile-menu nav a[href="/crew"]')).toHaveAttribute("aria-current", "page");
+  await page.goto("/does-not-exist");
+  await expect(page.locator(".mobile-menu nav a[aria-current]")).toHaveCount(0);
+});
+
+test("each route's share card names the page and keeps the site name", async ({ page }) => {
+  await page.goto("/crew/victor-glover");
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "Victor Glover | Space Tourism");
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute("content", "Space Tourism");
+  await page.goto("/technology");
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "Technology | Space Tourism");
+});
+
 test("hover states follow the Figma state frames", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1024 });
   await page.goto("/");
@@ -152,6 +180,17 @@ for (const path of pages) {
     for (let width = 320; width <= 1600; width += 10) {
       await page.setViewportSize({ width, height: 900 });
       if (await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)) failures.push(`${width}: page scroll`);
+      // .page clips horizontal overflow, so check element boxes too.
+      const spills = await page.evaluate(() =>
+        [...document.querySelectorAll("header *, main *")]
+          .filter((element) => element.getClientRects().length > 0 && !(element instanceof HTMLImageElement) && !element.closest("picture"))
+          .filter((element) => {
+            const box = element.getBoundingClientRect();
+            return box.right > window.innerWidth + 1 || box.left < -1 || element.scrollWidth > element.clientWidth + 1;
+          })
+          .map((element) => `${element.tagName.toLowerCase()}.${element.className}`),
+      );
+      if (spills.length) failures.push(`${width}: spills ${spills.slice(0, 3).join(" | ")}`);
       const small = await smallText(page);
       if (small.length) failures.push(`${width}: small text ${small.slice(0, 3).join(" | ")}`);
     }

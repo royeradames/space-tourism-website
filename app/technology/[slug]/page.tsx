@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/app/site";
 import { notFound, permanentRedirect } from "next/navigation";
 import { technologies } from "@/lib/content";
 import { TechnologyPage } from "@/components/technology-page";
@@ -12,6 +13,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: item?.name ?? "Not found",
     alternates: item ? { canonical: item.href } : undefined,
+    openGraph: item ? pageOpenGraph(item.name, item.description) : undefined,
     description: item ? item.description : undefined,
   };
 }

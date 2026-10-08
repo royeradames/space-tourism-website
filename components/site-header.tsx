@@ -4,7 +4,13 @@ import { sections } from "@/lib/navigation";
 
 /* The phone menu is a native disclosure, so it opens and closes without JavaScript.
    With JavaScript, Escape also closes it and returns focus to the menu button. */
-export function SiteHeader({ current }: { current: string }) {
+export function SiteHeader({
+  current,
+  currentState = "page",
+}: {
+  current: string;
+  currentState?: "page" | "true" | false;
+}) {
   const menu = useRef<HTMLDetailsElement>(null);
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
@@ -12,14 +18,25 @@ export function SiteHeader({ current }: { current: string }) {
       menu.current.open = false;
       menu.current.querySelector("summary")?.focus();
     }
+    function closeWhenLeft(event: FocusEvent | PointerEvent) {
+      const details = menu.current;
+      if (!details?.open || !(event.target instanceof Node)) return;
+      if (!details.contains(event.target)) details.open = false;
+    }
     window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    document.addEventListener("focusin", closeWhenLeft);
+    document.addEventListener("pointerdown", closeWhenLeft);
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("focusin", closeWhenLeft);
+      document.removeEventListener("pointerdown", closeWhenLeft);
+    };
   }, []);
   const links = sections.map((section) => (
     <a
       key={section.href}
       href={section.href}
-      aria-current={current === section.href ? "page" : undefined}
+      aria-current={current === section.href && currentState ? currentState : undefined}
     >
       <span aria-hidden="true">{section.number}</span> {section.label}
     </a>
