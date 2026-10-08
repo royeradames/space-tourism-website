@@ -11,6 +11,7 @@ export async function generateMetadata({ params }: Props) {
   const item = crew.find((item) => item.slug === slug);
   return {
     title: item?.name ?? "Not found",
+    alternates: item ? { canonical: item.href } : undefined,
     description: item ? item.bio : undefined,
   };
 }

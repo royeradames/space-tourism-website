@@ -5,14 +5,16 @@ export function DestinationPage({ destination }: { destination: Destination }) {
     <PageShell section="destination">
       <article className="destination content-width">
         <SectionTitle number="01">Pick your destination</SectionTitle>
-        <img
-          className="planet"
-          src={destination.image}
-          width="445"
-          height="445"
-          alt={destination.name}
-          fetchPriority="high"
-        />
+        <div className="planet-frame">
+          <img
+            className="planet"
+            src={destination.image}
+            width="445"
+            height="445"
+            alt={destination.name}
+            fetchPriority="high"
+          />
+        </div>
         <div className="destination-copy">
           <nav className="destination-nav" aria-label="Destinations">
             {destinations.map((item) => (

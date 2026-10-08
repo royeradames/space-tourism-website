@@ -4,9 +4,9 @@ The maintained application is the root Next.js project. It preserves the four or
 
 ## Run and verify
 
-Use Node24.11.1 or later, then `npm ci` and `npm run dev`. The local app uses port4391. `npm run build` creates the production application; `npm start` serves that build. No environment variables, API, account or database are required.
+Use Node 24, then `npm ci` and `npm run dev`. The local app uses port4391. `npm run build` creates the production application; `npm start` serves that build. No environment variables, API, account or database are required.
 
-Run `npm run lint`, `npm run typecheck`, `npm audit --omit=dev` and `npm run build`. `npm test` then starts an owned production server and runs the browser suite in installed Google Chrome, one worker, stopping the server on completion. It covers all content views, stable links/history, unknown routes, keyboard and no-JavaScript navigation, responsive image geometry and reduced motion. Generated screenshots/results stay ignored in `.test-state/`.
+Run `npm run lint`, `npm run typecheck`, `npm audit --omit=dev` and `npm run build`. `npm test` then starts an owned production server and runs the browser suite in installed Google Chrome with two workers, stopping the server on completion. It covers all content views, stable links/history, unknown routes, keyboard and no-JavaScript navigation, responsive image geometry and reduced motion. Generated screenshots/results stay ignored in `.test-state/`.
 
 ## Routes and navigation
 
@@ -17,9 +17,17 @@ Run `npm run lint`, `npm run typecheck`, `npm audit --omit=dev` and `npm run bui
 
 Links are normal document navigation, so every content choice works without JavaScript and survives refresh/back/forward. Unknown selections return404. Default-member child aliases redirect to the original parent paths.
 
-The mobile menu is a native disclosure. Enter or Space toggles it with or without JavaScript. With JavaScript, Escape closes it and restores focus. Character shortcuts are off until enabled in Keyboard help; the device remembers that preference when storage is available. Keyboard help teaches keys1–4 for the four sections and `?` to show help. Browser shortcuts and typing are not intercepted.
+The phone menu is a native disclosure: Enter or Space toggles it with or without JavaScript, and with JavaScript Escape closes it and returns focus. Typing never triggers navigation.
 
-All content is static initial HTML. Local fonts and supplied images avoid third-party runtime requests. Technology intentionally uses landscape imagery below1100px and portrait imagery above it. The layouts follow the official home preview and original repository's desktop/tablet/mobile design montage and styles. The available montage is low resolution; no pixel-perfect comparison with unavailable full-resolution designs is claimed.
+All content is static initial HTML. Local fonts and supplied images avoid third-party runtime requests.
+
+## Design
+
+Live: https://space-tourism.royeradames.com/
+
+The layouts follow the official Figma frames for every page at mobile (375), tablet (768) and desktop (1440): the 88/96/136 px headers, the blurred numbered link bar, the 254 px blurred phone menu, the 150/300/480 px planets, the crew copy-dots-portrait order with a faded portrait foot, and the full-bleed technology image with the 40/56/80 px numbered pager. Layout switches at 768 and 1100 px. The design's 14 and 15 px text is raised to the 16 px floor. `og:site_name` and WebSite JSON-LD name the site "Space Tourism", and every route has its own canonical URL. `tests/design.spec.ts` checks the frames, hover states, site identity and every width from 320 to 1600 px in 10 px steps; `PORT` overrides the test port 4391.
+
+An earlier version had an invented "Keyboard help" panel with character shortcuts. It was not in the design and broke the layout at narrow widths, so it was removed.
 
 ## Source and licenses
 
