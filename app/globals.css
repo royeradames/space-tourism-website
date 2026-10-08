@@ -788,6 +788,7 @@ summary::-webkit-details-marker {
     grid-template-areas:
       "title title title"
       "nav copy image";
+    grid-template-rows: auto 1fr;
     column-gap: 64px;
     align-items: center;
     justify-items: start;
