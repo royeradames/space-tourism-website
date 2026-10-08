@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/app/site";
 import { notFound, permanentRedirect } from "next/navigation";
 import { destinations } from "@/lib/content";
 import { DestinationPage } from "@/components/destination-page";
@@ -11,6 +12,8 @@ export async function generateMetadata({ params }: Props) {
   const item = destinations.find((item) => item.slug === slug);
   return {
     title: item?.name ?? "Not found",
+    alternates: item ? { canonical: item.href } : undefined,
+    openGraph: item ? pageOpenGraph(item.name, item.description) : undefined,
     description: item ? item.description : undefined,
   };
 }

@@ -1,9 +1,11 @@
 import { SiteHeader } from "./site-header";
 export function PageShell({
   section,
+  navCurrent = "page",
   children,
 }: {
   section: "home" | "destination" | "crew" | "technology";
+  navCurrent?: "page" | "true" | false;
   children: React.ReactNode;
 }) {
   return (
@@ -11,7 +13,7 @@ export function PageShell({
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <SiteHeader current={section === "home" ? "/" : `/${section}`} />
+      <SiteHeader current={section === "home" ? "/" : `/${section}`} currentState={navCurrent} />
       <main id="main" tabIndex={-1}>
         {children}
       </main>

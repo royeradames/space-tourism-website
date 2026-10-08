@@ -1,4 +1,6 @@
 import { PageShell } from "@/components/page-shell";
+
+export const metadata = { alternates: { canonical: "/" } };
 export default function Home() {
   return (
     <PageShell section="home">
