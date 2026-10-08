@@ -89,7 +89,8 @@ dd {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 24px;
+  /* The 44 px menu button centres its 24 px icon, so 14 px here puts the icon 24 px from the edge. */
+  padding-inline: 24px 14px;
   z-index: 2;
 }
 .logo {
@@ -134,7 +135,6 @@ dd {
   place-items: center;
   width: 44px;
   height: 44px;
-  margin-right: -10px;
   list-style: none;
   border-radius: 4px;
   z-index: 4;
@@ -155,8 +155,7 @@ summary::-webkit-details-marker {
 .mobile-menu[open] > summary {
   position: fixed;
   top: 22px;
-  right: 24px;
-  margin: 0;
+  right: 14px;
 }
 .mobile-menu nav {
   position: fixed;
@@ -168,7 +167,6 @@ summary::-webkit-details-marker {
   padding: 121px 0 32px 32px;
   background: rgb(255 255 255 / 0.05);
   backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
   z-index: 3;
 }
 .mobile-menu nav a {
@@ -304,8 +302,9 @@ summary::-webkit-details-marker {
 }
 .destination-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 32px;
+  gap: 0 32px;
   font-family: var(--font-condensed), sans-serif;
   font-size: 16px;
   letter-spacing: 0.15em;
@@ -319,6 +318,11 @@ summary::-webkit-details-marker {
   min-height: 44px;
   padding-top: 8px;
   border-bottom: 3px solid transparent;
+}
+@media (max-width: 360px) {
+  .destination-nav {
+    column-gap: 16px;
+  }
 }
 .destination-nav a:hover {
   color: var(--white);
@@ -420,8 +424,8 @@ summary::-webkit-details-marker {
 }
 .crew-image img {
   width: auto;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  max-height: 100%;
   -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent);
   mask-image: linear-gradient(to bottom, #000 75%, transparent);
 }
@@ -548,8 +552,7 @@ summary::-webkit-details-marker {
     padding-inline: 40px;
     background: rgb(255 255 255 / 0.05);
     backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-  }
+    }
   .desktop-nav a {
     display: flex;
     align-items: center;
@@ -757,7 +760,8 @@ summary::-webkit-details-marker {
     font-size: 32px;
   }
   .crew-copy h2 {
-    font-size: 56px;
+    /* 56 px at 1440; smaller below so long names such as Anousheh Ansari stay on one line. */
+    font-size: clamp(40px, 3.89vw, 56px);
   }
   .crew-nav {
     grid-column: 1;
