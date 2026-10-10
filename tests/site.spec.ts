@@ -134,7 +134,7 @@ test("mobile menu works with keyboard and restores focus", async ({
   await menu.focus();
   await page.keyboard.press("Enter");
   const navigation = page
-    .getByRole("navigation", { name: "Main navigation" })
+    .getByRole("navigation", { name: "Site menu" })
     .filter({ visible: true });
   await expect(navigation).toBeVisible();
   await page.keyboard.press("Tab");

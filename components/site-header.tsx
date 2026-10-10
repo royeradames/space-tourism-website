@@ -55,7 +55,7 @@ export function SiteHeader({
           <img className="menu-open" src="/assets/shared/icon-hamburger.svg" width="24" height="21" alt="" />
           <img className="menu-close" src="/assets/shared/icon-close.svg" width="20" height="21" alt="" />
         </summary>
-        <nav aria-label="Main navigation">{links}</nav>
+        <nav aria-label="Site menu">{links}</nav>
       </details>
     </header>
   );
