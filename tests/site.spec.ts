@@ -134,7 +134,7 @@ test("mobile menu works with keyboard and restores focus", async ({
   await menu.focus();
   await page.keyboard.press("Enter");
   const navigation = page
-    .getByRole("navigation", { name: "Main navigation" })
+    .getByRole("navigation", { name: "Site menu" })
     .filter({ visible: true });
   await expect(navigation).toBeVisible();
   await page.keyboard.press("Tab");
@@ -340,4 +340,15 @@ test("narrow pointer hover states and interactive target sizes remain visible", 
   await page.keyboard.press("Escape");
   await page.locator(".logo").hover();
   await expect(page.locator(".logo")).toHaveCSS("outline-style", "solid");
+});
+
+// Frontend Mentor score, October 10: html-validate unique-landmark. The wide-screen links
+// and the phone menu are both navigation landmarks, so they need different names.
+test("navigation landmarks have unique names on every page", async ({ request }) => {
+  for (const path of ["/", "/destination", "/crew", "/technology"]) {
+    const html = await (await request.get(path)).text();
+    const names = [...html.matchAll(/<nav\b[^>]*aria-label="([^"]+)"/g)].map((match) => match[1]);
+    expect(names.length, path).toBeGreaterThanOrEqual(2);
+    expect(new Set(names).size, `${path}: ${names.join(", ")}`).toBe(names.length);
+  }
 });
