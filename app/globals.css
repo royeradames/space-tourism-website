@@ -4,8 +4,8 @@
 @theme inline {
   --font-sans: var(--font-barlow);
   --font-display: var(--font-bellefair);
-  --color-night: #0b0d17;
-  --color-mist: #d0d6f9;
+  --color-night: var(--night);
+  --color-mist: var(--mist);
 }
 
 /* Figma frames: mobile 375, tablet 768, desktop 1440. Layout switches at 768 px and 1100 px.
