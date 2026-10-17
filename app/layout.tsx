@@ -3,17 +3,17 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { siteName, siteUrl } from "./site";
 const barlow = localFont({
-  src: "./fonts/Barlow-Regular.ttf",
+  src: "./fonts/Barlow-Regular.woff2",
   variable: "--font-barlow",
   display: "swap",
 });
 const condensed = localFont({
-  src: "./fonts/BarlowCondensed-Regular.ttf",
+  src: "./fonts/BarlowCondensed-Regular.woff2",
   variable: "--font-condensed",
   display: "swap",
 });
 const bellefair = localFont({
-  src: "./fonts/Bellefair-Regular.ttf",
+  src: "./fonts/Bellefair-Regular.woff2",
   variable: "--font-bellefair",
   display: "swap",
 });
