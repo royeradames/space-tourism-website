@@ -12,9 +12,6 @@ export default defineConfig([
   },
   globalIgnores([
     ".next/**",
-    "angular/**",
-    "react-front-end/**",
-    "server/**",
     "next-env.d.ts",
   ]),
 ]);
